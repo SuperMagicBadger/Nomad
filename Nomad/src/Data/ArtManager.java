@@ -1,17 +1,41 @@
 package Data;
 
 import java.util.HashMap;
+import java.util.concurrent.Semaphore;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 
 public class ArtManager {
-
+	
+	private class Counter <ITEMCLASS>{
+		public ITEMCLASS item;
+		public int count;
+		
+		public Counter(ITEMCLASS counted){
+			item = counted;
+			count = 1;
+		}
+		
+		public int currentCount(){
+			return count;
+		}
+		
+		public ITEMCLASS obtain(){
+			count++;
+			return item;
+		}
+		
+		public void release(){
+			count--;
+		}
+	}
+	
 	// varblok--------------------------
 	public static ArtManager single;
-	private HashMap<String, TextureAtlas> atlasMap;
-	private HashMap<String, BitmapFont> fontMap;
+	private HashMap<String, Counter<TextureAtlas> > atlasMap;
+	private HashMap<String, Counter<BitmapFont> > fontMap;
 	// varblok==========================
 
 	// constructors---------------------
@@ -23,61 +47,51 @@ public class ArtManager {
 	}
 
 	private ArtManager() {
-		atlasMap = new HashMap<String, TextureAtlas>();
-		fontMap = new HashMap<String, BitmapFont>();
-	}
-	public void dispose(){
-		disposeAtlas();
-		disposeFont();
+		atlasMap = new HashMap<String, ArtManager.Counter<TextureAtlas> >();
+		fontMap = new HashMap<String, ArtManager.Counter<BitmapFont> >();
 	}
 	// constructors=====================
 
 	// texture access and manips--------
-	public TextureAtlas getAtlas(String atlasname) {
+	public synchronized TextureAtlas getAtlas(String atlasname) {
 		if (atlasMap.containsKey(atlasname)) {
-			return atlasMap.get(atlasname);
+			return atlasMap.get(atlasname).obtain();
 		} else {
 			TextureAtlas atlas = new TextureAtlas(Gdx.files.internal("images/"
 					+ atlasname + ".pack"), Gdx.files.internal("images"));
-			atlasMap.put(atlasname, atlas);
+			atlasMap.put(atlasname, new Counter<TextureAtlas>(atlas));
 			return atlas;
 		}
 	}
-	public void disposeAtlas(String atlasname){
-		if(atlasMap.containsKey(atlasname)){
-			atlasMap.get(atlasname).dispose();
-			atlasMap.remove(atlasname);
+	public synchronized void disposeAtlas(String atlasname){
+		if(atlasMap.containsKey(atlasname) ){
+			atlasMap.get(atlasname).release();
+			if(atlasMap.get(atlasname).currentCount() <= 0){
+				atlasMap.get(atlasname).item.dispose();
+				atlasMap.remove(atlasname);
+			}
 		}
-	}
-	public void disposeAtlas(){
-		for(String s : atlasMap.keySet()){
-			atlasMap.get(s).dispose();
-		}
-		atlasMap.clear();
 	}
 	// texture access and manips========
 	
 	// font access and manips-----------
-	public BitmapFont getFont(String fontname){
+	public synchronized BitmapFont getFont(String fontname){
 		if(fontMap.containsKey(fontname)){
-			return fontMap.get(fontname);
+			return fontMap.get(fontname).obtain();
 		} else {
 			BitmapFont f = new BitmapFont(Gdx.files.internal("fonts/" + fontname + ".fnt"), false);
-			fontMap.put(fontname, f);
+			fontMap.put(fontname, new Counter<BitmapFont>(f));
 			return f;
 		}
 	}
-	public void disposeFont(String fontname){
-		if(fontMap.containsKey(fontname)){
-			fontMap.get(fontname).dispose();
-			fontMap.remove(fontname);
+	public synchronized void disposeFont(String fontname){
+		if(fontMap.containsKey(fontname) ){
+			fontMap.get(fontname).release();
+			if(fontMap.get(fontname).currentCount() <= 0){
+				fontMap.get(fontname).item.dispose();
+				fontMap.remove(fontname);
+			}
 		}
-	}
-	public void disposeFont(){
-		for(String s : fontMap.keySet()){
-			fontMap.get(s).dispose();
-		}
-		fontMap.clear();
 	}
 	// font access and manips===========
 }

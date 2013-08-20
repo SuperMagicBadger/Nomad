@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="744.09448819"
+   height="1052.3622047"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.48.4 r9939"
+   sodipodi:docname="New document 1">
+  <defs
+     id="defs4" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="3.8549296"
+     inkscape:cx="203.81932"
+     inkscape:cy="750.43387"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     showguides="true"
+     inkscape:guide-bbox="true"
+     inkscape:window-width="678"
+     inkscape:window-height="795"
+     inkscape:window-x="150"
+     inkscape:window-y="1050"
+     inkscape:window-maximized="0" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <g
+       transform="translate(50.223319,92.587796)"
+       id="g3816">
+      <rect
+         y="12.223166"
+         x="2.7181284"
+         height="174.56375"
+         width="197.4209"
+         id="rect2985"
+         style="fill:#333a4f;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1.72196674;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+      <rect
+         y="12.888008"
+         x="32.329437"
+         height="174.56375"
+         width="197.4209"
+         id="rect2985-1"
+         style="fill:#77dff3;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1.72196674;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+      <rect
+         y="11.449211"
+         x="64.746765"
+         height="174.56375"
+         width="197.4209"
+         id="rect2985-1-7"
+         style="fill:#8f8c91;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1.72196674;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+      <rect
+         y="11.844712"
+         x="97.491386"
+         height="174.56375"
+         width="197.4209"
+         id="rect2985-1-7-4"
+         style="fill:#aab0b1;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1.72196674;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+      <rect
+         y="13.535811"
+         x="127.98576"
+         height="174.56375"
+         width="197.4209"
+         id="rect2985-1-7-0"
+         style="fill:#d8d9d2;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1.72196674;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    </g>
+    <rect
+       style="fill:#333a4f;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       id="rect3825-3"
+       width="16"
+       height="16"
+       x="159.48547"
+       y="307.34808"
+       inkscape:export-filename="C:\Users\Cow\workspace\Nomad\Nomad\imageworksace\newgame\bgcol.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       style="fill:#aab0b1;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       id="rect3940-2-1"
+       width="15.825154"
+       height="15.825155"
+       x="185.03201"
+       y="306.90054"
+       inkscape:export-filename="C:\Users\Cow\workspace\Nomad\Nomad\imageworksace\newgame\buttondown.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       style="fill:#d8d9d2;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       id="rect3940-6-2"
+       width="15.825155"
+       height="15.825155"
+       x="210.79456"
+       y="306.90063"
+       inkscape:export-filename="C:\Users\Cow\workspace\Nomad\Nomad\imageworksace\newgame\buttonup.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       sodipodi:type="star"
+       style="fill:#8f8c91;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       id="path3013"
+       sodipodi:sides="3"
+       sodipodi:cx="166.42857"
+       sodipodi:cy="358.79074"
+       sodipodi:r1="42.402348"
+       sodipodi:r2="21.201174"
+       sodipodi:arg1="0.52359878"
+       sodipodi:arg2="1.5707963"
+       inkscape:flatsided="false"
+       inkscape:rounded="0"
+       inkscape:randomized="0"
+       d="m 203.15008,379.99191 -36.72151,0 -36.72151,0 18.36076,-31.80176 18.36075,-31.80176 18.36076,31.80176 z"
+       inkscape:transform-center-y="-5.3333424"
+       transform="matrix(0.43571193,0,0,0.5031168,103.7,170.81561)"
+       inkscape:export-filename="C:\Users\Cow\workspace\Nomad\Nomad\imageworksace\newgame\uparrowdown.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       sodipodi:type="star"
+       style="fill:#607d8a;fill-opacity:0.12557044;fill-rule:nonzero;stroke:none"
+       id="path3013-1"
+       sodipodi:sides="3"
+       sodipodi:cx="166.42857"
+       sodipodi:cy="358.79074"
+       sodipodi:r1="42.402348"
+       sodipodi:r2="21.201174"
+       sodipodi:arg1="0.52359878"
+       sodipodi:arg2="1.5707963"
+       inkscape:flatsided="false"
+       inkscape:rounded="0"
+       inkscape:randomized="0"
+       d="m 203.15008,379.99191 -36.72151,0 -36.72151,0 18.36076,-31.80176 18.36075,-31.80176 18.36076,31.80176 z"
+       inkscape:transform-center-y="-5.3333424"
+       transform="matrix(0.43571193,0,0,0.5031168,173.34003,170.35504)"
+       inkscape:export-filename="C:\Users\Cow\workspace\Nomad\Nomad\imageworksace\newgame\uparrowup.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       sodipodi:type="star"
+       style="fill:#8f8c91;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       id="path3013-1-7"
+       sodipodi:sides="3"
+       sodipodi:cx="166.42857"
+       sodipodi:cy="358.79074"
+       sodipodi:r1="42.402348"
+       sodipodi:r2="21.201174"
+       sodipodi:arg1="0.52359878"
+       sodipodi:arg2="1.5707963"
+       inkscape:flatsided="false"
+       inkscape:rounded="0"
+       inkscape:randomized="0"
+       d="m 203.15008,379.99191 -36.72151,0 -36.72151,0 18.36076,-31.80176 18.36075,-31.80176 18.36076,31.80176 z"
+       inkscape:transform-center-y="5.3333401"
+       transform="matrix(0.43571193,0,0,-0.5031168,68.150044,520.91116)"
+       inkscape:export-filename="C:\Users\Cow\workspace\Nomad\Nomad\imageworksace\newgame\downarrowdown.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       sodipodi:type="star"
+       style="fill:#607d8a;fill-opacity:0.12557044;fill-rule:nonzero;stroke:none"
+       id="path3013-1-7-4"
+       sodipodi:sides="3"
+       sodipodi:cx="166.42857"
+       sodipodi:cy="358.79074"
+       sodipodi:r1="42.402348"
+       sodipodi:r2="21.201174"
+       sodipodi:arg1="0.52359878"
+       sodipodi:arg2="1.5707963"
+       inkscape:flatsided="false"
+       inkscape:rounded="0"
+       inkscape:randomized="0"
+       d="m 203.15008,379.99191 -36.72151,0 -36.72151,0 18.36076,-31.80176 18.36075,-31.80176 18.36076,31.80176 z"
+       inkscape:transform-center-y="5.3333401"
+       transform="matrix(0.43571193,0,0,-0.5031168,138.62867,521.17055)"
+       inkscape:export-filename="C:\Users\Cow\workspace\Nomad\Nomad\imageworksace\newgame\downarrowup.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+  </g>
+</svg>

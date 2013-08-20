@@ -244,7 +244,7 @@ public class MapScreen implements Screen {
 			public boolean tap(float x, float y, int count, int button) {
 				
 				//test for units
-				Unit u = Command.activeCommand().getUnitAtScreen(x, y);
+				Unit u = Command.activeCommand().getFriendlyUnitAtScreen(x, y);
 				Unit active = Command.activeCommand().setActiveUnit(u);
 				if(u != null){
 					centerMenuOnUnit(u);

@@ -1,7 +1,17 @@
 package com.greatcow.nomad.view;
 
+import Data.ArtManager;
+
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
+import com.badlogic.gdx.scenes.scene2d.ui.ImageButton.ImageButtonStyle;
+import com.badlogic.gdx.scenes.scene2d.ui.Label.LabelStyle;
+import com.badlogic.gdx.scenes.scene2d.ui.Skin;
+import com.badlogic.gdx.scenes.scene2d.ui.SplitPane;
+import com.badlogic.gdx.scenes.scene2d.ui.Table;
+import com.badlogic.gdx.scenes.scene2d.ui.TextButton.TextButtonStyle;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 
 public class NewGameScreen implements Screen{
@@ -34,6 +44,24 @@ public class NewGameScreen implements Screen{
 	
 	// HELPERS===================================
 	
+	// Varblok-----------------------------------
+	//image data
+	TextureAtlas atlas;
+	Skin skin;
+	BitmapFont font;
+	//styles
+	TextButtonStyle tbStyle;
+	ImageButtonStyle uArrowStyle;
+	ImageButtonStyle dArrowStyle;
+	LabelStyle lbStyle;
+	//layouts
+	SplitPane scrollerPane;
+	Table scrollerTable;
+	
+	//buttons
+	//labels
+	// Varblok===================================
+	
 	@Override
 	public void render(float delta) {
 		// TODO Auto-generated method stub
@@ -48,8 +76,9 @@ public class NewGameScreen implements Screen{
 
 	@Override
 	public void show() {
-		// TODO Auto-generated method stub
-		
+		//get image data
+		font = ArtManager.getSingleton().getFont("mono_white");
+		atlas = ArtManager.getSingleton().getAtlas("");
 	}
 
 	@Override
