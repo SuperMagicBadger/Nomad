@@ -76,7 +76,7 @@ public class MenuScreen implements Screen{
 		newGameButton.addListener(new ClickListener(){
 			@Override
 			public void clicked(InputEvent event, float x, float y) {
-				Nomad.game.setScreen(new MapScreen());
+				Nomad.game.setScreen(new NewGameScreen());
 			}
 		});
 		
