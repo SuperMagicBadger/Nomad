@@ -1,4 +1,4 @@
-package com.greatcow.nomad.components;
+package com.greatcow.nomad.model;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.Actor;

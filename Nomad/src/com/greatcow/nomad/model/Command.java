@@ -1,4 +1,4 @@
-package com.greatcow.nomad.components;
+package com.greatcow.nomad.model;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -7,7 +7,7 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Group;
 import com.greatcow.nomad.Nomad;
-import com.greatcow.nomad.components.Unit.UnitState;
+import com.greatcow.nomad.model.Unit.UnitState;
 
 /*
  * The command class represents a player and groups all
@@ -134,7 +134,7 @@ public class Command{
 		return null;
 	}
 	
-	public Unit removeUnitAt(float x, float y){
+	public Unit removeFriendlyUnitAt(float x, float y){
 		Unit u = getUnitAt(x, y);
 		if(u != null){
 			unitList.remove(u);
@@ -143,7 +143,7 @@ public class Command{
 		return u;
 	}
 	
-	public Unit removeUnitAtScreen(float screenX, float screenY){
+	public Unit removeFriendlyUnitAtScreen(float screenX, float screenY){
 		Unit u = getUnitAtScreen(screenX, screenY);
 		if(u != null){
 			unitList.remove(u);

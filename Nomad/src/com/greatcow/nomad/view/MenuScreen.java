@@ -1,4 +1,5 @@
-package com.greatcow.nomad.screen;
+package com.greatcow.nomad.view;
+
 
 import Data.ArtManager;
 

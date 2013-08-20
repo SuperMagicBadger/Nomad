@@ -1,4 +1,4 @@
-package com.greatcow.nomad.components;
+package com.greatcow.nomad.model;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -11,6 +11,7 @@ import com.greatcow.nomad.Nomad;
 public class Level {
 
 	//varblok--------------------------
+	public static Level activeLevel;
 	Group mapgroup;
 	ArrayList<Planet> planetList;
 	HashMap<String, PlanetStyle> styleList;

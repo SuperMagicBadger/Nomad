@@ -4,7 +4,7 @@ import com.badlogic.gdx.Game;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.Pool;
-import com.greatcow.nomad.screen.MenuScreen;
+import com.greatcow.nomad.view.MenuScreen;
 
 public class Nomad extends Game {
 	//varblok--------------------------

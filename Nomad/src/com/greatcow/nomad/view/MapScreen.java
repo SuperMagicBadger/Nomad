@@ -1,4 +1,5 @@
-package com.greatcow.nomad.screen;
+package com.greatcow.nomad.view;
+
 
 import Data.ArtManager;
 
@@ -23,111 +24,13 @@ import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton.TextButtonStyle;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
-import com.greatcow.nomad.components.Command;
-import com.greatcow.nomad.components.Planet;
-import com.greatcow.nomad.components.PlanetStyle;
-import com.greatcow.nomad.components.Unit;
-import com.greatcow.nomad.components.UnitStyle;
+import com.greatcow.nomad.model.Command;
+import com.greatcow.nomad.model.Planet;
+import com.greatcow.nomad.model.PlanetStyle;
+import com.greatcow.nomad.model.Unit;
+import com.greatcow.nomad.model.UnitStyle;
 
 public class MapScreen implements Screen {
-
-	// helpers------------------------------------
-
-	// gesture actions
-	private class stageInput implements GestureListener {
-
-		@Override
-		public boolean touchDown(float x, float y, int pointer, int button) {
-
-			return false;
-		}
-
-		@Override
-		public boolean tap(float x, float y, int count, int button) {
-			//get the tappy thing data stuff... yeah...
-			Vector2 coords = new Vector2(x, y);
-			coords = stage.screenToStageCoordinates(coords);
-			Actor a = stage.hit(coords.x, coords.y, true);
-			coords = unitBlock.stageToLocalCoordinates(coords);
-			
-			if (a != null) {
-				//if the tap hit a unit, bring up the menu thingy
-				if (a instanceof Unit) {
-					Unit u = (Unit) a;
-					centerMenuOnUnit(Command.activeCommand().setActiveUnit(u));
-					return true;
-				}
-			} else {
-				if (Command.activeCommand().activeUnit == null) {
-					//this means that there is no active unit, so for debuging
-					//purposes, put one there
-					Unit newu = Command.activeCommand().addUnitAt("basic_style",
-							coords.x, coords.y);
-					return true;
-				} else {
-					//there is an active unit, so all we want to do is remove the menu
-					//in two steps it deactivates the unit and menu
-					centerMenuOnUnit(Command.activeCommand().setActiveUnit(null));
-				}
-			}
-			return false;
-		}
-
-		@Override
-		public boolean longPress(float x, float y) {
-			return false;
-		}
-
-		@Override
-		public boolean fling(float velocityX, float velocityY, int button) {
-			return false;
-		}
-
-		@Override
-		public boolean pan(float x, float y, float deltaX, float deltaY) {
-			unitBlock.translate(deltaX, -deltaY);
-			return true;
-		}
-
-		@Override
-		public boolean zoom(float initialDistance, float distance) {
-			return false;
-		}
-
-		@Override
-		public boolean pinch(Vector2 initialPointer1, Vector2 initialPointer2,
-				Vector2 pointer1, Vector2 pointer2) {
-			return false;
-		}
-
-	}
-
-	// button actions
-	private class UnitButtonListener extends ClickListener {
-		@Override
-		public void clicked(InputEvent event, float x, float y) {
-			if (event.getListenerActor() == attackBtn) {
-				Command.activeCommand().activeUnit.startCombatOrder();
-			} else if (event.getListenerActor() == moveBtn) {
-				Command.activeCommand().activeUnit.startMoveOrder();
-			}
-		}
-	}
-
-	private class UIButtonListener extends ClickListener {
-		@Override
-		public void clicked(InputEvent event, float x, float y) {
-			if (event.getListenerActor() == endTurnButton) {
-				if (menuActive) {
-					centerMenuOnUnit(null);
-				}
-				Command.nextTurn();
-			}
-		}
-	}
-
-	// helpers====================================
-
 	// varblok------------------------------------
 	// render data
 	TextureAtlas atlas;
@@ -244,12 +147,6 @@ public class MapScreen implements Screen {
 		planetStyle = new PlanetStyle();
 		planetStyle.planetImage = atlas.findRegion("black_circle");
 		
-		for(int i = 0; i < 50; i++){
-			Planet p = new Planet(planetStyle);
-			p.setPosition(i * p.getWidth(), 50);
-			unitBlock.addActor(p);
-		}
-		
 		// PLANETS________________________________________________________________________
 		
 		// CONTROLS_______________________________________________________________________
@@ -330,4 +227,87 @@ public class MapScreen implements Screen {
 		}
 	}
 	// map screen controls========================
+	
+	
+	
+	// helpers------------------------------------
+
+		// gesture actions
+		private class stageInput implements GestureListener {
+
+			@Override
+			public boolean touchDown(float x, float y, int pointer, int button) {
+				return false;
+			}
+
+			@Override
+			public boolean tap(float x, float y, int count, int button) {
+				
+				//test for units
+				Unit u = Command.activeCommand().getUnitAtScreen(x, y);
+				Unit active = Command.activeCommand().setActiveUnit(u);
+				if(u != null){
+					centerMenuOnUnit(u);
+				} else if (Command.activeCommand().activeUnit == null){
+					
+				}
+				
+				return false;
+			}
+
+			@Override
+			public boolean longPress(float x, float y) {
+				return false;
+			}
+
+			@Override
+			public boolean fling(float velocityX, float velocityY, int button) {
+				return false;
+			}
+
+			@Override
+			public boolean pan(float x, float y, float deltaX, float deltaY) {
+				unitBlock.translate(deltaX, -deltaY);
+				return true;
+			}
+
+			@Override
+			public boolean zoom(float initialDistance, float distance) {
+				return false;
+			}
+
+			@Override
+			public boolean pinch(Vector2 initialPointer1, Vector2 initialPointer2,
+					Vector2 pointer1, Vector2 pointer2) {
+				return false;
+			}
+
+		}
+
+		// button actions
+		private class UnitButtonListener extends ClickListener {
+			@Override
+			public void clicked(InputEvent event, float x, float y) {
+				if (event.getListenerActor() == attackBtn) {
+					Command.activeCommand().activeUnit.startCombatOrder();
+				} else if (event.getListenerActor() == moveBtn) {
+					Command.activeCommand().activeUnit.startMoveOrder();
+				}
+			}
+		}
+
+		private class UIButtonListener extends ClickListener {
+			@Override
+			public void clicked(InputEvent event, float x, float y) {
+				if (event.getListenerActor() == endTurnButton) {
+					if (menuActive) {
+						centerMenuOnUnit(null);
+					}
+					Command.nextTurn();
+				}
+			}
+		}
+
+		// helpers====================================
+	
 }

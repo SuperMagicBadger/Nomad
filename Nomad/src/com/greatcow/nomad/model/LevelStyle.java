@@ -1,4 +1,4 @@
-package com.greatcow.nomad.components;
+package com.greatcow.nomad.model;
 
 import java.util.ArrayList;
 
