@@ -9,6 +9,18 @@ import com.badlogic.gdx.scenes.scene2d.Group;
 import com.greatcow.nomad.Nomad;
 import com.greatcow.nomad.components.Unit.UnitState;
 
+/*
+ * The command class represents a player and groups all
+ * the units he controls.  It has a reference to the map
+ * screen to allow it to manage which units appear on screen.
+ * 
+ * It maintains a list of styles to facilitate easier resource
+ * management and unit creation.
+ * 
+ * It also maintains a list of command's and manages turn order.
+ * It signals each command when its turn begins and ends.
+ */
+
 public class Command{
 	//varblok----------------------------------------------
 	private static Group mapgroup;
@@ -71,11 +83,21 @@ public class Command{
 
 	
 	public Unit addUnitAt(String stylename, float x, float y){
+		UnitStyle ustyle = getStyle(stylename);
+		if(ustyle != null){
+			Unit u = new Unit(ustyle, x, y);
+			unitList.add(u);
+			mapgroup.addActor(u);
+			return u;
+		}
 		return null;
 	}
 	
 	public Unit addUnitAtScreen(String stylename, float screenX, float screenY){
-		return null;
+		Vector2 workingvector = Nomad.vectorPool.obtain();
+		workingvector.set(screenX, screenY);
+		workingvector = mapgroup.screenToLocalCoordinates(workingvector);
+		return getUnitAt(workingvector.x, workingvector.y);
 	}
 	// manips==============================================
 	
@@ -111,6 +133,24 @@ public class Command{
 			return styleList.get(style);
 		}
 		return null;
+	}
+	
+	public Unit removeUnitAt(float x, float y){
+		Unit u = getUnitAt(x, y);
+		if(u != null){
+			unitList.remove(u);
+			mapgroup.removeActor(u);
+		}
+		return u;
+	}
+	
+	public Unit removeUnitAtScreen(float screenX, float screenY){
+		Unit u = getUnitAtScreen(screenX, screenY);
+		if(u != null){
+			unitList.remove(u);
+			mapgroup.removeActor(u);
+		}
+		return u;
 	}
 	// delete stuff========================================
 	
