@@ -23,12 +23,12 @@ import com.greatcow.nomad.components.Unit.UnitState;
 
 public class Command{
 	//varblok----------------------------------------------
-	private static Group mapgroup;
+	public static Group mapgroup;
 	//turn management
 	static private ArrayList<Command> comandList = new ArrayList<Command>();
 	static private int activeTurn = 0;
 	//team management
-	private HashMap<String, UnitStyle> styleList;
+	private static HashMap<String, UnitStyle> styleList = new HashMap<String, UnitStyle>();
 	private ArrayList<Unit> unitList;
 	private int teamNumber;
 	public Unit activeUnit;
@@ -49,7 +49,6 @@ public class Command{
 		unitList = new ArrayList<Unit>();
 		teamNumber = teamNum;
 		activeUnit = null;
-		styleList = new HashMap<String, UnitStyle>();
 	}
 	//constructors=========================================
 	
@@ -76,8 +75,8 @@ public class Command{
 	//turn swapping========================================
 	
 	// manips----------------------------------------------
-	public UnitStyle registerStyle(String name, UnitStyle style){
-		 styleList.put(null, style);
+	public static UnitStyle registerStyle(String name, UnitStyle style){
+		 styleList.put(name, style);
 		return style;
 	}
 
@@ -102,7 +101,7 @@ public class Command{
 	// manips==============================================
 	
 	// access----------------------------------------------
-	public UnitStyle getStyle(String name){
+	public static UnitStyle getStyle(String name){
 		if(styleList.containsKey(name)){
 			return styleList.get(name);
 		}
@@ -128,7 +127,7 @@ public class Command{
 	// access==============================================
 	
 	// delete stuff----------------------------------------
-	public UnitStyle unregisterStyle(String style){
+	public static UnitStyle unregisterStyle(String style){
 		if(styleList.containsKey(style)){
 			return styleList.get(style);
 		}
@@ -154,15 +153,7 @@ public class Command{
 	}
 	// delete stuff========================================
 	
-	//command processing-----------------------------------
-	public Unit createUnit(UnitStyle style, float x, float y){
-		Unit u = new Unit(style);
-		u.setAsFriendly();
-		u.setPosition(x, y);
-		unitList.add(u);
-		return u;
-	}
-	
+	//command processing-----------------------------------	
 	public Unit setActiveUnit(Unit u){
 		if(u == null || unitList.contains(u)){
 			if(activeUnit != null && activeUnit.ustate != UnitState.Idle){

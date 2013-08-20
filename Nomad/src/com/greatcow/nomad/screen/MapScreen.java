@@ -61,9 +61,8 @@ public class MapScreen implements Screen {
 				if (Command.activeCommand().activeUnit == null) {
 					//this means that there is no active unit, so for debuging
 					//purposes, put one there
-					Unit newu = Command.activeCommand().createUnit(unitStyle,
+					Unit newu = Command.activeCommand().addUnitAt("basic_style",
 							coords.x, coords.y);
-					unitBlock.addActor(newu);
 					return true;
 				} else {
 					//there is an active unit, so all we want to do is remove the menu
@@ -187,12 +186,13 @@ public class MapScreen implements Screen {
 		uiButtonListener = new UIButtonListener();
 		unitBlock = new Group();
 
+		Command.mapgroup = unitBlock;
 		Command.createCommand(3);
 
 		// UNITS________________________________________________________________
 
 		// initialize the main unit style
-		unitStyle = new UnitStyle();
+		unitStyle = Command.registerStyle("basic_style", new UnitStyle());
 		unitStyle.attackCircleColor = Color.RED;
 		unitStyle.moveCircleColor = Color.BLUE;
 		unitStyle.enemySprite = atlas.findRegion("units_enemy");
