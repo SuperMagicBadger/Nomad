@@ -13,11 +13,10 @@ import com.badlogic.gdx.scenes.scene2d.ui.SplitPane;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 
-public class Spinner extends Actor{
+public class Spinner extends Table{
 	// varblok-------------------------
 	SpinnerStyle style;
-	SplitPane horiz;
-	SplitPane vert;
+	Table vert;
 	Label l;
 	ImageButton up;
 	ImageButton down;
@@ -44,15 +43,14 @@ public class Spinner extends Actor{
 		lstyle.font = style.font;
 		lstyle.fontColor = style.fontColor;
 		l = new Label(Integer.toString(count), lstyle);
+		vert = new Table();
 		
-		SplitPaneStyle spaneStyle = new SplitPaneStyle();
-		vert = new SplitPane(up, down, true, spaneStyle);
-		horiz = new SplitPane(l, vert, false, spaneStyle);	
-	}
-	
-	@Override
-	public void draw(SpriteBatch batch, float parentAlpha) {
-		horiz.draw(batch, parentAlpha);
+		vert.add(up);
+		vert.row().space(10);
+		vert.add(down);
+		
+		add(l);
+		add(vert);
 	}
 	
 	private class upListener extends ClickListener{

@@ -8,6 +8,8 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
+import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.actions.AddAction;
 import com.badlogic.gdx.scenes.scene2d.ui.ImageButton.ImageButtonStyle;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Label.LabelStyle;
@@ -63,9 +65,9 @@ public class NewGameScreen implements Screen{
 	LabelStyle lbStyle;
 	SpinnerStyle spinnerStyle;
 	//layouts
+	Stage stage;
 	SplitPane scrollerPane;
-	Table scrollerTable;
-	
+	Table scrollerTable;	
 	//buttons
 	Spinner playerCounter;
 	TextButton newGameButton;
@@ -78,14 +80,17 @@ public class NewGameScreen implements Screen{
 	
 	@Override
 	public void render(float delta) {
-		Gdx.gl.glClearColor(0, 0, 0, 1);
+		Gdx.gl.glClearColor(0.20f, 0.227f, 0.31f, 1);
 		Gdx.gl.glClear(Gdx.gl20.GL_COLOR_BUFFER_BIT);
 		
+		stage.act(delta);
+		stage.draw();
 	}
 
 	@Override
 	public void resize(int width, int height) {
-		// TODO Auto-generated method stub
+		stage.setViewport(width, height, false);
+		newGameButton.setPosition(Gdx.graphics.getWidth() - newGameButton.getWidth() - 20, 20);
 		
 	}
 
@@ -95,18 +100,38 @@ public class NewGameScreen implements Screen{
 		font = ArtManager.getSingleton().getFont("mono_white");
 		atlas = ArtManager.getSingleton().getAtlas("newgame");
 		skin = new Skin(atlas);
+		stage = new Stage();
 		
 		//set up button styles
 		tbStyle = new TextButtonStyle();
 		tbStyle.up = skin.getDrawable("buttonup");
 		tbStyle.down = skin.getDrawable("buttondown");
 		tbStyle.font = font;
-		tbStyle.fontColor = Color.WHITE;
-		tbStyle.downFontColor = Color.DARK_GRAY;
+		tbStyle.fontColor = Color.BLACK;
+		
+		spinnerStyle = new SpinnerStyle();
+		spinnerStyle.upArrowUp = skin.getDrawable("uparrowup");
+		spinnerStyle.upArrowDown = skin.getDrawable("uparrowdown");
+		spinnerStyle.downArrowUp = skin.getDrawable("downarrowup");
+		spinnerStyle.downArrowDown = skin.getDrawable("downarrowdown");
+		spinnerStyle.font = font;
+		spinnerStyle.fontColor = Color.BLACK;
 		
 		//set up buttons
+		playerCounter = new Spinner(spinnerStyle);
+		playerCounter.setPosition(100, 150);
+		
 		newGameButton = new TextButton("Start Game", tbStyle);
+		newGameButton.setPosition(Gdx.graphics.getWidth() - newGameButton.getWidth() - 20, 20);
+		newGameButton.addListener(new ClickListener(){
+			@Override
+			public void clicked(InputEvent event, float x, float y) {
+				Nomad.game.setScreen(new MapScreen());
+			}
+		});
+		
 		backButton = new TextButton("Back", tbStyle);
+		backButton.setPosition(20, 20);
 		backButton.addListener(new ClickListener(){
 			@Override
 			public void clicked(InputEvent event, float x, float y) {
@@ -114,7 +139,11 @@ public class NewGameScreen implements Screen{
 			}
 		});
 		
+		stage.addActor(newGameButton);
+		stage.addActor(backButton);
+		stage.addActor(playerCounter);
 		
+		Gdx.input.setInputProcessor(stage);
 	}
 
 	@Override

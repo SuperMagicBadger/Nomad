@@ -8,8 +8,6 @@ import com.badlogic.gdx.scenes.scene2d.utils.Drawable;
 public class SpinnerStyle {
 	public BitmapFont font;
 	public Color fontColor;
-	public Color upCol;
-	public Color downCol;
 	public Drawable upArrowUp;
 	public Drawable upArrowDown;
 	public Drawable downArrowUp;

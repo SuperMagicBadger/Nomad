@@ -49,6 +49,7 @@ public class MenuScreen implements Screen{
 		stage.setViewport(width, height, false);
 		titleimage.setPosition(20, Gdx.graphics.getHeight() - titleimage.getHeight() - 20);
 		newGameButton.setPosition(Gdx.graphics.getWidth() - newGameButton.getWidth() - 20, 20);
+		continueGameButton.setPosition(newGameButton.getX() - (continueGameButton.getWidth() - newGameButton.getWidth()), newGameButton.getY() + continueGameButton.getHeight() + 20);
 	}
 
 	@Override
