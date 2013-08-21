@@ -48,9 +48,11 @@ public class Spinner extends Table{
 		vert.add(up);
 		vert.row().space(10);
 		vert.add(down);
+		vert.pack();
 		
 		add(l);
 		add(vert);
+		pack();
 	}
 	
 	private class upListener extends ClickListener{

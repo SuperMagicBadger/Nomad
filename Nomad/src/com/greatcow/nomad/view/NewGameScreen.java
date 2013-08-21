@@ -25,28 +25,10 @@ import com.greatcow.nomad.widgets.SpinnerStyle;
 
 public class NewGameScreen implements Screen{
 
-	// HELPERS-----------------------------------
-	
-	class StartButtonListener extends ClickListener{
-		@Override
-		public void clicked(InputEvent event, float x, float y) {
-			// TODO Auto-generated method stub
-			super.clicked(event, x, y);
-		}
-	}
-	
-	class CancelButtonListener extends ClickListener{
-		@Override
-		public void clicked(InputEvent event, float x, float y) {
-			// TODO Auto-generated method stub
-			super.clicked(event, x, y);
-		}
-	}
-	
+	// HELPERS-----------------------------------	
 	class LevelNameListener extends ClickListener{
 		@Override
 		public void clicked(InputEvent event, float x, float y) {
-			// TODO Auto-generated method stub
 			super.clicked(event, x, y);
 		}
 	}
@@ -67,7 +49,8 @@ public class NewGameScreen implements Screen{
 	//layouts
 	Stage stage;
 	SplitPane scrollerPane;
-	Table scrollerTable;	
+	Table scrollerTable;
+	Table spinnerTable;
 	//buttons
 	Spinner playerCounter;
 	TextButton newGameButton;
@@ -91,7 +74,8 @@ public class NewGameScreen implements Screen{
 	public void resize(int width, int height) {
 		stage.setViewport(width, height, false);
 		newGameButton.setPosition(Gdx.graphics.getWidth() - newGameButton.getWidth() - 20, 20);
-		
+		spinnerTable.setPosition(50, (Gdx.graphics.getHeight() / 2f) - 50);
+		titleLabel.setPosition(20, Gdx.graphics.getHeight() - titleLabel.getHeight() - 20);
 	}
 
 	@Override
@@ -109,6 +93,10 @@ public class NewGameScreen implements Screen{
 		tbStyle.font = font;
 		tbStyle.fontColor = Color.BLACK;
 		
+		lbStyle = new LabelStyle();
+		lbStyle.font = font;
+		lbStyle.fontColor = Color.BLACK;
+		
 		spinnerStyle = new SpinnerStyle();
 		spinnerStyle.upArrowUp = skin.getDrawable("uparrowup");
 		spinnerStyle.upArrowDown = skin.getDrawable("uparrowdown");
@@ -119,7 +107,6 @@ public class NewGameScreen implements Screen{
 		
 		//set up buttons
 		playerCounter = new Spinner(spinnerStyle);
-		playerCounter.setPosition(100, 150);
 		
 		newGameButton = new TextButton("Start Game", tbStyle);
 		newGameButton.setPosition(Gdx.graphics.getWidth() - newGameButton.getWidth() - 20, 20);
@@ -139,9 +126,26 @@ public class NewGameScreen implements Screen{
 			}
 		});
 		
+		//setup labels
+		titleLabel = new Label("New Game:", lbStyle);
+		titleLabel.setFontScale(1.5f);
+		titleLabel.setPosition(20, Gdx.graphics.getHeight() - titleLabel.getHeight() - 20);
+		
+		playerCounterLabel = new Label("Player Count", lbStyle);
+		playerCounterLabel.setFontScale(0.75f);
+		
+		//set up layouts
+		spinnerTable = new Table();
+		spinnerTable.add(playerCounterLabel);
+		spinnerTable.row();
+		spinnerTable.add(playerCounter);
+		spinnerTable.pack();
+		
+		//and bring everything together		
+		stage.addActor(spinnerTable);
+		stage.addActor(titleLabel);
 		stage.addActor(newGameButton);
 		stage.addActor(backButton);
-		stage.addActor(playerCounter);
 		
 		Gdx.input.setInputProcessor(stage);
 	}
@@ -154,19 +158,16 @@ public class NewGameScreen implements Screen{
 
 	@Override
 	public void pause() {
-		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
 	public void resume() {
-		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
 	public void dispose() {
-		// TODO Auto-generated method stub
 		
 	}
 
