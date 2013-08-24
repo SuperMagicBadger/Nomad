@@ -2,8 +2,6 @@ package com.greatcow.nomad.control;
 
 import com.badlogic.gdx.input.GestureDetector.GestureListener;
 import com.badlogic.gdx.math.Vector2;
-import com.badlogic.gdx.scenes.scene2d.Event;
-import com.badlogic.gdx.scenes.scene2d.EventListener;
 import com.greatcow.nomad.model.Command;
 import com.greatcow.nomad.model.Unit;
 

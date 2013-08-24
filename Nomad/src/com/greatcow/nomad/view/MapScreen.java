@@ -13,7 +13,6 @@ import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.input.GestureDetector;
 import com.badlogic.gdx.input.GestureDetector.GestureListener;
 import com.badlogic.gdx.math.Vector2;
-import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Group;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
@@ -25,7 +24,6 @@ import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton.TextButtonStyle;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.greatcow.nomad.model.Command;
-import com.greatcow.nomad.model.Planet;
 import com.greatcow.nomad.model.PlanetStyle;
 import com.greatcow.nomad.model.Unit;
 import com.greatcow.nomad.model.UnitStyle;
@@ -245,7 +243,7 @@ public class MapScreen implements Screen {
 				
 				//test for units
 				Unit u = Command.activeCommand().getFriendlyUnitAtScreen(x, y);
-				Unit active = Command.activeCommand().setActiveUnit(u);
+				//Unit active = Command.activeCommand().setActiveUnit(u);
 				if(u != null){
 					centerMenuOnUnit(u);
 				} else if (Command.activeCommand().activeUnit == null){
