@@ -1,0 +1,56 @@
+
+newgame.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+downarrowdown
+  rotate: false
+  xy: 1, 19
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+downarrowup
+  rotate: false
+  xy: 35, 19
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+uparrowdown
+  rotate: false
+  xy: 69, 19
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+uparrowup
+  rotate: false
+  xy: 103, 19
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+bgcol
+  rotate: false
+  xy: 1, 1
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+buttondown
+  rotate: false
+  xy: 137, 35
+  size: 16, 16
+  split: 0, 0, 0, 0
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+buttonup
+  rotate: false
+  xy: 19, 1
+  size: 16, 16
+  split: 0, 0, 0, 0
+  orig: 16, 16
+  offset: 0, 0
+  index: -1

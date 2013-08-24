@@ -1,6 +1,7 @@
 package com.greatcow.nomad.view;
 
 import Data.ArtManager;
+import Data.LevelManager;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
@@ -80,6 +81,8 @@ public class NewGameScreen implements Screen{
 
 	@Override
 	public void show() {
+		Gdx.app.log("NGScreen", "" + LevelManager.getSingleton().getLevelsFiles().length);
+		
 		//get image data
 		font = ArtManager.getSingleton().getFont("mono_white");
 		atlas = ArtManager.getSingleton().getAtlas("newgame");

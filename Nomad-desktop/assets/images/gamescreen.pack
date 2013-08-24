@@ -1,0 +1,111 @@
+
+gamescreen.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+black_circle
+  rotate: false
+  xy: 1, 57
+  size: 64, 64
+  split: 0, 0, 0, 0
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+black_planet
+  rotate: false
+  xy: 67, 57
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+blue_circle
+  rotate: false
+  xy: 133, 57
+  size: 64, 64
+  split: 0, 0, 0, 0
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+buttonborder
+  rotate: false
+  xy: 199, 57
+  size: 64, 64
+  split: 0, 0, 0, 0
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+red_circle
+  rotate: false
+  xy: 265, 57
+  size: 64, 64
+  split: 0, 0, 0, 0
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+units_enemy_command
+  rotate: false
+  xy: 1, 1
+  size: 55, 54
+  orig: 55, 54
+  offset: 0, 0
+  index: -1
+units_friendly_command
+  rotate: false
+  xy: 331, 67
+  size: 55, 54
+  orig: 55, 54
+  offset: 0, 0
+  index: -1
+units_enemy
+  rotate: false
+  xy: 58, 7
+  size: 55, 48
+  orig: 55, 48
+  offset: 0, 0
+  index: -1
+units_friendly
+  rotate: false
+  xy: 388, 73
+  size: 55, 48
+  orig: 55, 48
+  offset: 0, 0
+  index: -1
+arrowdown
+  rotate: false
+  xy: 115, 23
+  size: 32, 32
+  split: 7, 0, 8, 8
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+arrowup
+  rotate: false
+  xy: 445, 89
+  size: 32, 32
+  split: 7, 0, 8, 8
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+planet
+  rotate: false
+  xy: 479, 89
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+buttondown
+  rotate: false
+  xy: 149, 39
+  size: 16, 16
+  split: 0, 0, 0, 0
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+buttonup
+  rotate: false
+  xy: 167, 39
+  size: 16, 16
+  split: 0, 0, 0, 0
+  orig: 16, 16
+  offset: 0, 0
+  index: -1

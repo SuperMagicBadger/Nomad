@@ -12,12 +12,10 @@ public class LevelManager {
 	//statics
 	public static Level activeLevel = null;
 	private static LevelManager singleton = null;
-	//files
-	FileHandle directory;
 	// varblok===============
 	
 	// constructors------------------------------
-	public LevelManager getSingleton(){
+	public static LevelManager getSingleton(){
 		if(singleton == null){
 			singleton = new LevelManager();
 		}
@@ -25,19 +23,31 @@ public class LevelManager {
 	}
 	
 	private LevelManager(){
-		directory = Gdx.files.internal("levels");
 	}
 	// constructors==============================
 	
 	// access------------------------------------
 	public String[] getLevelsFiles(){
-		ArrayList<String> fileNames = new ArrayList<String>();
-		for(FileHandle entry : directory.list()){
-			if(entry.name().endsWith(".level")){
-				fileNames.add(entry.name().substring(0, entry.name().length() - 6));
-			}
+		FileHandle directory = null;
+		switch(Gdx.app.getType()){
+		case Android:
+			directory = Gdx.files.internal("levels");
+			break;
+		case Desktop:
+			directory = Gdx.files.internal("./assets/levels");
+			break;
 		}
-		return (String[]) fileNames.toArray();
+		if(!directory.exists()){
+			Gdx.app.log("LevelMan", "directory does not exist");
+		} else {
+			Gdx.app.log("LevelMan", "directory found");
+		}
+		String[] s = new String[directory.list(".level").length];
+		for(int i = 0; i < s.length; i++){
+			s[i] = directory.list(".level")[i].nameWithoutExtension();
+			Gdx.app.log("LevelMan", s[i]);
+		}
+		return s;
 	}
 	// access====================================
 	

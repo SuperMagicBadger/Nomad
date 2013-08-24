@@ -2,6 +2,7 @@ package com.greatcow.nomad.view;
 
 
 import Data.ArtManager;
+import Data.LevelManager;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputMultiplexer;

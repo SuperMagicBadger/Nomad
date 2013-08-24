@@ -3,6 +3,7 @@ package Data;
 import java.util.HashMap;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 
@@ -56,8 +57,15 @@ public class ArtManager {
 		if (atlasMap.containsKey(atlasname)) {
 			return atlasMap.get(atlasname).obtain();
 		} else {
-			TextureAtlas atlas = new TextureAtlas(Gdx.files.internal("images/"
-					+ atlasname + ".pack"), Gdx.files.internal("images"));
+			FileHandle packFile = Gdx.files.internal("images/" + atlasname + ".pack");
+			FileHandle imageDir = Gdx.files.internal("images");
+			if(imageDir.exists()){
+				Gdx.app.log("ArtMan", "image directory exists " + imageDir.isDirectory());
+			}
+			for(FileHandle s : imageDir.list()){
+				Gdx.app.log("ArtMan", s.name());
+			}
+			TextureAtlas atlas = new TextureAtlas(packFile, imageDir);
 			atlasMap.put(atlasname, new Counter<TextureAtlas>(atlas));
 			return atlas;
 		}
