@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<root>
+    
+    <level name="generic level" sizeX=500 sizeY=500 >
+        <texture_pack atlas="gamescreen"/>
+        <planet_texture texture="" />
+    </level>
+    
+</root>

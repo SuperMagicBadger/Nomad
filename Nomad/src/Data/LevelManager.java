@@ -34,7 +34,7 @@ public class LevelManager {
 			directory = Gdx.files.internal("levels");
 			break;
 		case Desktop:
-			directory = Gdx.files.internal("./assets/levels");
+			directory = Gdx.files.local("./levels");
 			break;
 		}
 		if(!directory.exists()){
