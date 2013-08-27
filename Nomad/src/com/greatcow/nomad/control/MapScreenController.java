@@ -3,7 +3,7 @@ package com.greatcow.nomad.control;
 import com.badlogic.gdx.input.GestureDetector.GestureListener;
 import com.badlogic.gdx.math.Vector2;
 import com.greatcow.nomad.model.Command;
-import com.greatcow.nomad.model.Unit;
+import com.greatcow.nomad.view.Unit;
 
 public class MapScreenController implements GestureListener {
 	

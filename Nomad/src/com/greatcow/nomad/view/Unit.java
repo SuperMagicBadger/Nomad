@@ -1,4 +1,4 @@
-package com.greatcow.nomad.model;
+package com.greatcow.nomad.view;
 
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -7,6 +7,7 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.Action;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.greatcow.nomad.Nomad;
+import com.greatcow.nomad.model.UnitStyle;
 
 public class Unit extends Actor {
 	// helpers-----------------------------------------------
@@ -46,7 +47,7 @@ public class Unit extends Actor {
 	private Vector2 destination = new Vector2(0, 0);
 	private Vector2 velocity = new Vector2(0, 0);
 	Alignment alignment = Alignment.Friendly;
-	UnitState ustate = UnitState.Idle;
+	public UnitState ustate = UnitState.Idle;
 	// turn control
 	private int AP = 10;
 	private int maxAP = 10;
