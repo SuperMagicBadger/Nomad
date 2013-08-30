@@ -2,7 +2,11 @@ package com.greatcow.nomad.data;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
+import com.badlogic.gdx.scenes.scene2d.Group;
+import com.badlogic.gdx.utils.Pool;
 import com.greatcow.nomad.model.Level;
+import com.greatcow.nomad.model.Planet;
+import com.greatcow.nomad.model.PlanetStyle;
 
 public class LevelManager {
 
@@ -10,6 +14,8 @@ public class LevelManager {
 	//statics
 	public static Level activeLevel = null;
 	private static LevelManager singleton = null;
+	//pools
+	Pool<Planet> planetPool;
 	// varblok===============
 	
 	// constructors------------------------------
@@ -21,6 +27,13 @@ public class LevelManager {
 	}
 	
 	private LevelManager(){
+		planetPool = new Pool<Planet>(){
+			@Override
+			protected Planet newObject() {
+				return new Planet();
+			}
+			
+		};
 	}
 	// constructors==============================
 	
@@ -51,9 +64,20 @@ public class LevelManager {
 	// access====================================
 	
 	// manips------------------------------------
+	public void readyLevel(Group g){
+		if(activeLevel == null)
+			activeLevel = new Level(g);
+		
+		
+	}
+	
 	public void generateLevel(int planetCount){
+		// varblok
+		Planet p;
 		
 		//generate sun
+		p = new Planet();
+		p.setPosition(0, 0);
 		
 		//generate planets
 		for(int i = 0; i < planetCount; i++){

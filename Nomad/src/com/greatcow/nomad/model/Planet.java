@@ -13,7 +13,15 @@ public class Planet extends Actor{
 	public int resourceUnits;
 	//varblok==========================
 	
+	public Planet(){
+		style = null;
+	}
+	
 	public Planet(PlanetStyle ps){
+		setStyle(ps);
+	}
+	
+	public void setStyle(PlanetStyle ps){
 		style = ps;
 		setWidth(ps.planetImage.getRegionWidth());
 		setHeight(ps.planetImage.getRegionHeight());
@@ -21,6 +29,8 @@ public class Planet extends Actor{
 	
 	@Override
 	public void draw(SpriteBatch batch, float parentAlpha) {
-		batch.draw(style.planetImage, getX(), getY());
+		if(style != null){
+			batch.draw(style.planetImage, getX(), getY());
+		}
 	}
 }

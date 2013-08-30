@@ -6,18 +6,25 @@ import java.util.HashMap;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Group;
+import com.badlogic.gdx.utils.SnapshotArray;
 import com.greatcow.nomad.Nomad;
 
 public class Level {
 
 	//varblok--------------------------
 	public static Level activeLevel;
-	Group mapgroup;
-	ArrayList<Planet> planetList;
-	HashMap<String, PlanetStyle> styleList;
+	public Group mapgroup;
+	private ArrayList<Planet> planetList;
+	private HashMap<String, PlanetStyle> styleList;
 	//varblok==========================
 	
 	// constructors--------------------
+	public Level(){
+		mapgroup = new Group();
+		planetList = new ArrayList<Planet>();
+		styleList = new HashMap<String, PlanetStyle>();
+	}
+	
 	public Level(Group g){
 		mapgroup = g;
 		planetList = new ArrayList<Planet>();
@@ -92,6 +99,22 @@ public class Level {
 			planetList.remove(p);
 		}
 		return p;
+	}
+	public Planet removePlanet(int index){
+		Planet p = planetList.remove(index);
+		mapgroup.removeActor(p);
+		return p;
+	}
+	public Planet[] removeAllPlanets(){
+		Planet[] arr = new Planet[planetList.size()];
+		
+		for(int i = 0; i < planetList.size(); i++){
+			arr[i] = planetList.get(i);
+			mapgroup.removeActor(arr[i]);
+		}
+		planetList.clear();
+		
+		return arr;
 	}
 	// delete stuff====================
 }
