@@ -7,8 +7,7 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Group;
 import com.greatcow.nomad.Nomad;
-import com.greatcow.nomad.view.Unit;
-import com.greatcow.nomad.view.Unit.UnitState;
+import com.greatcow.nomad.model.Unit.UnitState;
 
 /*
  * The command class represents a player and groups all

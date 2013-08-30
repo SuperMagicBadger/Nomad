@@ -1,4 +1,4 @@
-package com.greatcow.nomad.view;
+package com.greatcow.nomad.model;
 
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -7,7 +7,6 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.Action;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.greatcow.nomad.Nomad;
-import com.greatcow.nomad.model.UnitStyle;
 
 public class Unit extends Actor {
 	// helpers-----------------------------------------------

@@ -1,6 +1,4 @@
-package Data;
-
-import java.util.ArrayList;
+package com.greatcow.nomad.data;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
@@ -27,6 +25,7 @@ public class LevelManager {
 	// constructors==============================
 	
 	// access------------------------------------
+	@SuppressWarnings("incomplete-switch")
 	public String[] getLevelsFiles(){
 		FileHandle directory = null;
 		switch(Gdx.app.getType()){
@@ -50,5 +49,17 @@ public class LevelManager {
 		return s;
 	}
 	// access====================================
+	
+	// manips------------------------------------
+	public void generateLevel(int planetCount){
+		
+		//generate sun
+		
+		//generate planets
+		for(int i = 0; i < planetCount; i++){
+			
+		}
+	}
+	// manips====================================
 	
 }

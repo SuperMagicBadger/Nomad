@@ -1,4 +1,4 @@
-package Data;
+package com.greatcow.nomad.data;
 
 /**
  * a resource counter.  Handles supply usage

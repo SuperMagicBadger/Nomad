@@ -1,4 +1,4 @@
-package tweeners;
+package com.greatcow.nomad.tweeners;
 
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 

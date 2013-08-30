@@ -1,8 +1,7 @@
-package com.greatcow.nomad.view;
+package com.greatcow.nomad.model;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.Actor;
-import com.greatcow.nomad.model.PlanetStyle;
 
 public class Planet extends Actor{
 

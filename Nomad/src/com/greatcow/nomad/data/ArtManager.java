@@ -1,4 +1,4 @@
-package Data;
+package com.greatcow.nomad.data;
 
 import java.util.HashMap;
 

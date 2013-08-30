@@ -1,8 +1,6 @@
 package com.greatcow.nomad.view;
 
 
-import Data.ArtManager;
-import Data.LevelManager;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputMultiplexer;
@@ -24,8 +22,10 @@ import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton.TextButtonStyle;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
+import com.greatcow.nomad.data.ArtManager;
 import com.greatcow.nomad.model.Command;
 import com.greatcow.nomad.model.PlanetStyle;
+import com.greatcow.nomad.model.Unit;
 import com.greatcow.nomad.model.UnitStyle;
 
 public class MapScreen implements Screen {

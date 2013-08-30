@@ -1,7 +1,5 @@
 package com.greatcow.nomad.view;
 
-import Data.ArtManager;
-import Data.LevelManager;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
@@ -21,6 +19,8 @@ import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton.TextButtonStyle;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.greatcow.nomad.Nomad;
+import com.greatcow.nomad.data.ArtManager;
+import com.greatcow.nomad.data.LevelManager;
 import com.greatcow.nomad.widgets.Spinner;
 import com.greatcow.nomad.widgets.SpinnerStyle;
 
