@@ -3,10 +3,10 @@ package com.greatcow.nomad.model;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import com.badlogic.gdx.math.Circle;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Group;
-import com.badlogic.gdx.utils.SnapshotArray;
 import com.greatcow.nomad.Nomad;
 
 public class Level {
@@ -15,32 +15,38 @@ public class Level {
 	public static Level activeLevel;
 	public Group mapgroup;
 	private ArrayList<Planet> planetList;
-	private HashMap<String, PlanetStyle> styleList;
+	public ArrayList<Circle> orbits;
+	private float wid, hgt;
 	//varblok==========================
 	
 	// constructors--------------------
 	public Level(){
 		mapgroup = new Group();
 		planetList = new ArrayList<Planet>();
-		styleList = new HashMap<String, PlanetStyle>();
+		orbits = new ArrayList<Circle>();
 	}
 	
 	public Level(Group g){
 		mapgroup = g;
 		planetList = new ArrayList<Planet>();
-		styleList = new HashMap<String, PlanetStyle>();
+		orbits = new ArrayList<Circle>();
 	}
 	// constructors====================
+	
+	// dimensions----------------------
+	public void setWidth(float width){
+		wid = width;
+	}
+	public void setHeight(float height){
+		hgt = height;
+	}
+	// dimensions======================
 	
 	// manips--------------------------
 	public Planet addPlanet(Planet p){
 		planetList.add(p);
 		mapgroup.addActor(p);
 		return p;
-	}
-	public PlanetStyle registerStyle(String name, PlanetStyle style){
-		styleList.put(name, style);
-		return style;
 	}
 	public Planet createPlanetAtScreen(String stylename, float screenX, float screenY){
 		return null;
@@ -68,22 +74,19 @@ public class Level {
 			return null;
 		}
 	}
-	public PlanetStyle getStyle(String name){
-		if(styleList.containsKey(name)){
-			return styleList.get(name);
+	public Planet getPlanet(int index){
+		return planetList.get(index);
+	}
+	public Planet[] getPlanets(){
+		Planet[] arr = new Planet[planetList.size()];
+		for(int i = 0; i < arr.length; i++){
+			arr[i] = planetList.get(i);
 		}
-		return null;
+		return arr;
 	}
 	// access==========================
 	
 	// delete stuff--------------------
-	public PlanetStyle unregisterStyle(String name){
-		PlanetStyle ps = getStyle(name);
-		if(ps != null){
-			styleList.remove(name);
-		}
-		return ps;
-	}
 	public Planet removePlanetAtScreen(float screenX, float screenY){
 		Planet p = getPlanetAtScreen(screenX, screenY);
 		if(p != null){

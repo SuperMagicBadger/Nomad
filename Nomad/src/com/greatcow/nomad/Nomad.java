@@ -1,5 +1,7 @@
 package com.greatcow.nomad;
 
+import java.util.Random;
+
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.math.Vector2;
@@ -11,12 +13,14 @@ public class Nomad extends Game {
 	public static Nomad game;
 	public static ShapeRenderer shapeRenderer;
 	public static Pool<Vector2> vectorPool;
+	public static Random rng;
 	//varblok==========================
 
 	@Override
 	public void create() {
 		game = this;
 		shapeRenderer = new ShapeRenderer();
+		rng = new Random();
 		
 		vectorPool = new Pool<Vector2>(){
 			@Override

@@ -22,8 +22,12 @@ import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton.TextButtonStyle;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
+import com.greatcow.nomad.Nomad;
 import com.greatcow.nomad.data.ArtManager;
+import com.greatcow.nomad.data.LevelManager;
 import com.greatcow.nomad.model.Command;
+import com.greatcow.nomad.model.Level;
+import com.greatcow.nomad.model.Planet;
 import com.greatcow.nomad.model.PlanetStyle;
 import com.greatcow.nomad.model.Unit;
 import com.greatcow.nomad.model.UnitStyle;
@@ -142,8 +146,29 @@ public class MapScreen implements Screen {
 		
 		// PLANETS________________________________________________________________________
 		
+		//setup images
+		LevelManager lman = LevelManager.getSingleton();
+		
 		planetStyle = new PlanetStyle();
-		planetStyle.planetImage = atlas.findRegion("black_circle");
+		planetStyle.planetImage = skin.getRegion("planet");
+		planetStyle.maxScale = 2f;
+		planetStyle.minScale = 0.5f;
+		planetStyle.frequency = 0.5f;
+		
+		lman.registerStyle("planet", planetStyle);
+		
+		planetStyle = new PlanetStyle();
+		planetStyle.planetImage = skin.getRegion("black_planet");
+		planetStyle.maxScale = 2f;
+		planetStyle.minScale = 0.5f;
+		planetStyle.frequency = 0.5f;
+		
+		lman.registerStyle("black_planet", planetStyle);
+		
+		//generate level
+		lman.readyLevel(unitBlock);
+		lman.generateLevel(4, 100, 400);
+		Level l = lman.getActiveLevel();
 		
 		// PLANETS________________________________________________________________________
 		

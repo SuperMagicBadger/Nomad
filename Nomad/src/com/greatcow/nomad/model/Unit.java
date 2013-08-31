@@ -94,10 +94,22 @@ public class Unit extends Actor {
 			switch (alignment) {
 			case Friendly:
 			case Neutral:
-				batch.draw(style.friendlySprite, getX(), getY());
+				batch.draw(
+						style.friendlySprite, 
+						getX(), getY(),
+						getOriginX(), getOriginY(),
+						getWidth(), getHeight(), 
+						getScaleX(), getScaleY(),
+						getRotation());
 				break;
 			case Enemy:
-				batch.draw(style.enemySprite, getX(), getY());
+				batch.draw(
+						style.enemySprite, 
+						getX(), getY(),
+						getOriginX(), getOriginY(),
+						getWidth(), getHeight(), 
+						getScaleX(), getScaleY(),
+						getRotation());
 				break;
 			default:
 				break;

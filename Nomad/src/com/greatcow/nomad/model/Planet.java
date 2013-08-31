@@ -1,10 +1,13 @@
 package com.greatcow.nomad.model;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.scenes.scene2d.Actor;
+import com.badlogic.gdx.scenes.scene2d.actions.MoveToAction;
+import com.badlogic.gdx.scenes.scene2d.actions.RotateByAction;
 
 public class Planet extends Actor{
-
 	//varblok--------------------------
 	//render data
 	public PlanetStyle style;
@@ -14,7 +17,6 @@ public class Planet extends Actor{
 	//varblok==========================
 	
 	public Planet(){
-		style = null;
 	}
 	
 	public Planet(PlanetStyle ps){
@@ -25,12 +27,20 @@ public class Planet extends Actor{
 		style = ps;
 		setWidth(ps.planetImage.getRegionWidth());
 		setHeight(ps.planetImage.getRegionHeight());
+		setOriginX(style.planetImage.getRegionWidth() / 2f);
+		setOriginY(style.planetImage.getRegionHeight() / 2f);
 	}
 	
 	@Override
 	public void draw(SpriteBatch batch, float parentAlpha) {
 		if(style != null){
-			batch.draw(style.planetImage, getX(), getY());
+			batch.draw(
+					style.planetImage, 
+					getX(), getY(),
+					getOriginX(), getOriginY(),
+					getWidth(), getHeight(), 
+					getScaleX(), getScaleY(),
+					getRotation());
 		}
 	}
 }

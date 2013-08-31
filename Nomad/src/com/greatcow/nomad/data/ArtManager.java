@@ -59,13 +59,8 @@ public class ArtManager {
 		} else {
 			FileHandle packFile = Gdx.files.internal("images/" + atlasname + ".pack");
 			FileHandle imageDir = Gdx.files.internal("images");
-			if(imageDir.exists()){
-				Gdx.app.log("ArtMan", "image directory exists " + imageDir.isDirectory());
-			}
-			for(FileHandle s : imageDir.list()){
-				Gdx.app.log("ArtMan", s.name());
-			}
 			TextureAtlas atlas = new TextureAtlas(packFile, imageDir);
+			
 			atlasMap.put(atlasname, new Counter<TextureAtlas>(atlas));
 			return atlas;
 		}
