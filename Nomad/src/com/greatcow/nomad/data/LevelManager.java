@@ -101,9 +101,9 @@ public class LevelManager {
 	// access====================================
 	
 	// manips------------------------------------
-	public void readyLevel(Group g){
+	public void readyLevel(){
 		if(activeLevel == null)
-			activeLevel = new Level(g);
+			activeLevel = new Level();
 		
 		Planet[] arr = activeLevel.removeAllPlanets();
 		
@@ -134,7 +134,7 @@ public class LevelManager {
 	
 	public void generateLevel(int planetCount, float minDist, float maxDist){
 		// varblok
-		Planet prev, current;
+		Planet current;
 		Vector2 vec = Nomad.vectorPool.obtain();
 		float minY = 0;
 		float minX = 0;
@@ -142,10 +142,10 @@ public class LevelManager {
 		float maxY = 0;
 		
 		//generate sun
-		prev = planetPool.obtain();
-		prev.setPosition(0, 0);
-		prev.setStyle(getStyle("black_planet"));
-		activeLevel.addPlanet(prev);
+		current = planetPool.obtain();
+		current.setPosition(0, 0);
+		current.setStyle(getStyle("black_planet"));
+		activeLevel.addPlanet(current);
 		
 		//generate planets
 		for(int i = 0; i < planetCount; i++){
@@ -154,28 +154,24 @@ public class LevelManager {
 			//generate the range and rotation
 			final float range = (Nomad.rng.nextFloat() * (maxDist - minDist)) + minDist;
 			final float rotation = Nomad.rng.nextFloat() * 360;
-			//calculate the position and store min variables
+			//position the planet
 			vec.set(i * (maxDist + minDist) / 2f + range, 0);
 			vec.rotate(rotation);
-			if(vec.x < minX){
-				minX = vec.x;
-			} else if (vec.x > maxX){
-				maxX = vec.x;
-			}
-			if (vec.y < minY){
-				minY = vec.y;
-			} else if (vec.y > maxY){
-				maxY = vec.y;
-			}
-			Gdx.app.log("LevelMan", "range: " + range + " rotation: " + rotation);
-			//add the planet
 			current.setPosition(vec.x, vec.y);
+			//get min and max values
+			minX = current.getX() < minX ? current.getX() : minX;
+			maxX = current.getRight() > maxX ? current.getRight() : maxX;
+			minY = current.getY() < minY ? current.getY() : minY;
+			maxY = current.getTop() > maxY ? current.getTop() : maxY;
+			Gdx.app.log("LevelMan", "range: " + range + " rotation: " + rotation + " min: " + minX + " " + minY);
+			//add the planet
 			activeLevel.addPlanet(current);
-			prev = current;
 		}
 
-		for(int i = 0; i < activeLevel.orbits.size(); i++){
-			activeLevel.getPlanet(i).translate(0 - minX, 0 - minY);
+		for(Planet p : activeLevel.getPlanets()){
+			p.translate(0 - minX, 0 - minY);
+			if(p != activeLevel.getPlanet(0))
+				p.setOrbitCenter(activeLevel.getPlanet(0).getCenterX(), activeLevel.getPlanet(0).getCenterY());
 		}
 		
 		activeLevel.setWidth(maxX - minX);

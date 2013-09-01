@@ -5,6 +5,7 @@ package com.greatcow.nomad.view;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputMultiplexer;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.graphics.Camera;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
@@ -79,6 +80,8 @@ public class MapScreen implements Screen {
 	@Override
 	public void resize(int width, int height) {
 		stage.setViewport(width, height, false);
+		uitable.setPosition(width - uitable.getWidth(), 0);
+		uitable.setHeight(height);
 	}
 
 	@Override
@@ -166,9 +169,10 @@ public class MapScreen implements Screen {
 		lman.registerStyle("black_planet", planetStyle);
 		
 		//generate level
-		lman.readyLevel(unitBlock);
+		lman.readyLevel();
 		lman.generateLevel(4, 100, 400);
-		Level l = lman.getActiveLevel();
+		
+		stage.addActor(lman.getActiveLevel());
 		
 		// PLANETS________________________________________________________________________
 		
@@ -206,7 +210,6 @@ public class MapScreen implements Screen {
 		uitable.bottom().right().add(endTurnButton);
 
 		stage.addActor(uitable);
-		
 		// CONTROLS_______________________________________________________________________
 
 		
@@ -290,7 +293,28 @@ public class MapScreen implements Screen {
 
 			@Override
 			public boolean pan(float x, float y, float deltaX, float deltaY) {
-				unitBlock.translate(deltaX, -deltaY);
+				
+				final Camera camera = stage.getCamera();
+				final Level l = LevelManager.getSingleton().getActiveLevel();
+				
+				final float cameraLeft = camera.position.x - (camera.viewportWidth / 2f);
+				final float cameraRight = camera.position.x + (camera.viewportWidth / 2f);
+				final float cameraTop = camera.position.y + (camera.viewportHeight / 2f);
+				final float cameraBottom = camera.position.y - (camera.viewportHeight / 2f);
+				
+				Gdx.app.log("MapScr", "cam: " + cameraLeft + " " + cameraRight + " " + cameraTop + " " + cameraBottom);
+				Gdx.app.log("MapScr", "lvl: " + l.getX() + " " + l.getRight() + " " + l.getTop() + " " + l.getY());
+				
+				if(cameraLeft - deltaX > l.getX() && cameraRight - deltaX < l.getRight()){
+					camera.translate(-deltaX, 0, 0);
+					uitable.translate(-deltaX, 0);
+				}
+				
+				if(cameraBottom + deltaY > l.getY() && cameraTop + deltaY < l.getTop()){
+					camera.translate(0, deltaY, 0);
+					uitable.translate(0, deltaY);
+				}
+				
 				return true;
 			}
 

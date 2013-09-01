@@ -9,43 +9,27 @@ import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Group;
 import com.greatcow.nomad.Nomad;
 
-public class Level {
+public class Level extends Group{
 
 	//varblok--------------------------
 	public static Level activeLevel;
-	public Group mapgroup;
+	//public Group mapgroup;
 	private ArrayList<Planet> planetList;
 	public ArrayList<Circle> orbits;
-	private float wid, hgt;
 	//varblok==========================
 	
 	// constructors--------------------
 	public Level(){
-		mapgroup = new Group();
-		planetList = new ArrayList<Planet>();
-		orbits = new ArrayList<Circle>();
-	}
-	
-	public Level(Group g){
-		mapgroup = g;
+//		mapgroup = new Group();
 		planetList = new ArrayList<Planet>();
 		orbits = new ArrayList<Circle>();
 	}
 	// constructors====================
 	
-	// dimensions----------------------
-	public void setWidth(float width){
-		wid = width;
-	}
-	public void setHeight(float height){
-		hgt = height;
-	}
-	// dimensions======================
-	
 	// manips--------------------------
 	public Planet addPlanet(Planet p){
 		planetList.add(p);
-		mapgroup.addActor(p);
+		addActor(p);
 		return p;
 	}
 	public Planet createPlanetAtScreen(String stylename, float screenX, float screenY){
@@ -61,13 +45,13 @@ public class Level {
 		//test for a hit
 		Vector2 workingVector = Nomad.vectorPool.obtain();
 		workingVector.set(screenX, screenY);
-		workingVector = mapgroup.screenToLocalCoordinates(workingVector);
+		workingVector = screenToLocalCoordinates(workingVector);
 		Planet p = getPlanetAt(workingVector.x, workingVector.y);
 		Nomad.vectorPool.free(workingVector);
 		return p;
 	}
 	public Planet getPlanetAt(float x, float y){
-		Actor a = mapgroup.hit(x, y, true);
+		Actor a = hit(x, y, true);
 		if(a != null && a instanceof Planet){
 			return (Planet) a;
 		} else {
@@ -90,7 +74,7 @@ public class Level {
 	public Planet removePlanetAtScreen(float screenX, float screenY){
 		Planet p = getPlanetAtScreen(screenX, screenY);
 		if(p != null){
-			mapgroup.removeActor(p);
+			removeActor(p);
 			planetList.remove(p);
 		}
 		return p;
@@ -98,14 +82,14 @@ public class Level {
 	public Planet removePlanetAt(float x, float y){
 		Planet p = getPlanetAt(x, y);
 		if(p != null){
-			mapgroup.removeActor(p);
+			removeActor(p);
 			planetList.remove(p);
 		}
 		return p;
 	}
 	public Planet removePlanet(int index){
 		Planet p = planetList.remove(index);
-		mapgroup.removeActor(p);
+		removeActor(p);
 		return p;
 	}
 	public Planet[] removeAllPlanets(){
@@ -113,7 +97,7 @@ public class Level {
 		
 		for(int i = 0; i < planetList.size(); i++){
 			arr[i] = planetList.get(i);
-			mapgroup.removeActor(arr[i]);
+			removeActor(arr[i]);
 		}
 		planetList.clear();
 		
