@@ -140,6 +140,7 @@ public class LevelManager {
 		float minX = 0;
 		float maxX = 0;
 		float maxY = 0;
+		float maxRadius = 0;
 		
 		//generate sun
 		current = planetPool.obtain();
@@ -168,14 +169,19 @@ public class LevelManager {
 			activeLevel.addPlanet(current);
 		}
 
+		//vec should retain the value of the last planets position
+		//so we just rangefind towards the sun
+		maxRadius = vec.dst(activeLevel.getPlanet(0).getX(), activeLevel.getPlanet(0).getY()) + 250;
+		Gdx.app.log("LevelMan", "max radius: " + maxRadius);
+		
 		for(Planet p : activeLevel.getPlanets()){
-			p.translate(0 - minX, 0 - minY);
+			p.translate(maxRadius, maxRadius);
 			if(p != activeLevel.getPlanet(0))
 				p.setOrbitCenter(activeLevel.getPlanet(0).getCenterX(), activeLevel.getPlanet(0).getCenterY());
 		}
 		
-		activeLevel.setWidth(maxX - minX);
-		activeLevel.setHeight(maxY - minY);
+		activeLevel.setWidth(maxRadius * 2);
+		activeLevel.setHeight(maxRadius * 2);
 		
 		Nomad.vectorPool.free(vec);
 	}
