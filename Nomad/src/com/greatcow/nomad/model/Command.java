@@ -21,9 +21,8 @@ import com.greatcow.nomad.model.Unit.UnitState;
  * It signals each command when its turn begins and ends.
  */
 
-public class Command{
+public class Command extends Group{
 	//varblok----------------------------------------------
-	public static Group mapgroup;
 	private static HashMap<String, UnitStyle> styleList = new HashMap<String, UnitStyle>();
 	//turn management
 	static private ArrayList<Command> comandList = new ArrayList<Command>();
@@ -86,7 +85,7 @@ public class Command{
 		if(ustyle != null){
 			Unit u = new Unit(ustyle, x, y);
 			unitList.add(u);
-			mapgroup.addActor(u);
+			addActor(u);
 			return u;
 		}
 		return null;
@@ -95,7 +94,7 @@ public class Command{
 	public Unit addFriendlyUnitAtScreen(String stylename, float screenX, float screenY){
 		Vector2 workingvector = Nomad.vectorPool.obtain();
 		workingvector.set(screenX, screenY);
-		workingvector = mapgroup.screenToLocalCoordinates(workingvector);
+		workingvector = screenToLocalCoordinates(workingvector);
 		return getFriendlyUnitAt(workingvector.x, workingvector.y);
 	}
 	// manips==============================================
@@ -109,7 +108,7 @@ public class Command{
 	}
 	
 	public Unit getFriendlyUnitAt(float x, float y){
-		Actor a = mapgroup.hit(x, y, true);
+		Actor a = hit(x, y, true);
 		if(a != null && a instanceof Unit){
 			return (Unit) a;
 		}
@@ -119,14 +118,14 @@ public class Command{
 	public Unit getFriendlyUnitAtScreen(float screenX, float screenY){
 		Vector2 workingvector = Nomad.vectorPool.obtain();
 		workingvector.set(screenX, screenY);
-	    workingvector = mapgroup.screenToLocalCoordinates(workingvector);
+	    workingvector = screenToLocalCoordinates(workingvector);
 		Unit u = getFriendlyUnitAt(workingvector.x, workingvector.y);
 		Nomad.vectorPool.free(workingvector);
 		return u;
 	}
 	
 	public static Unit getUnitAt(float x, float y){
-		Actor a = mapgroup.hit(x, y, true);
+		Actor a = activeCommand().hit(x, y, true);
 		if(a != null && a instanceof Unit){
 			return (Unit) a;
 		}
@@ -135,7 +134,7 @@ public class Command{
 	
 	public static Unit getUnitAtScreen(float screenX, float screenY){
 		Vector2 workingvector = Nomad.vectorPool.obtain();
-		workingvector = mapgroup.screenToLocalCoordinates(workingvector);
+		workingvector = activeCommand().screenToLocalCoordinates(workingvector);
 		return getUnitAt(workingvector.x, workingvector.y);
 	}
 	// access==============================================
@@ -152,7 +151,7 @@ public class Command{
 		Unit u = getFriendlyUnitAt(x, y);
 		if(u != null){
 			unitList.remove(u);
-			mapgroup.removeActor(u);
+			removeActor(u);
 		}
 		return u;
 	}
@@ -161,7 +160,7 @@ public class Command{
 		Unit u = getFriendlyUnitAtScreen(screenX, screenY);
 		if(u != null){
 			unitList.remove(u);
-			mapgroup.removeActor(u);
+			removeActor(u);
 		}
 		return u;
 	}

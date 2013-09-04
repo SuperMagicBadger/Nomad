@@ -28,7 +28,6 @@ import com.greatcow.nomad.data.ArtManager;
 import com.greatcow.nomad.data.LevelManager;
 import com.greatcow.nomad.model.Command;
 import com.greatcow.nomad.model.Level;
-import com.greatcow.nomad.model.Planet;
 import com.greatcow.nomad.model.PlanetStyle;
 import com.greatcow.nomad.model.Unit;
 import com.greatcow.nomad.model.UnitStyle;
@@ -58,6 +57,7 @@ public class MapScreen implements Screen {
 	TextButtonStyle uiTextButtonStyle;
 	ImageButtonStyle uiImageButtonStyle;
 	TextButton endTurnButton;
+	TextButton infoButton;
 	ImageButton sliderButton;
 
 	// state data
@@ -93,9 +93,6 @@ public class MapScreen implements Screen {
 		unitButtonListener = new UnitButtonListener();
 		uiButtonListener = new UIButtonListener();
 		unitBlock = new Group();
-
-		Command.mapgroup = unitBlock;
-		Command.createCommand(3);
 
 		// UNITS________________________________________________________________
 
@@ -197,6 +194,9 @@ public class MapScreen implements Screen {
 		// menu buttons
 		endTurnButton = new TextButton("End Turn", uiTextButtonStyle);
 		endTurnButton.addListener(uiButtonListener);
+		
+		infoButton = new TextButton("Info", uiTextButtonStyle);
+		infoButton.addListener(uiButtonListener);
 
 		// fill the table
 		uitable = new Table();
@@ -207,6 +207,8 @@ public class MapScreen implements Screen {
 		uitable.setWidth(endTurnButton.getWidth());
 		uitable.setHeight(Gdx.graphics.getHeight());
 
+		uitable.bottom().right().add(infoButton);
+		uitable.row();
 		uitable.bottom().right().add(endTurnButton);
 
 		stage.addActor(uitable);
@@ -221,6 +223,9 @@ public class MapScreen implements Screen {
 
 	@Override
 	public void hide() {
+		stage.dispose();
+		ArtManager.getSingleton().disposeAtlas("gamescreen");
+		ArtManager.getSingleton().disposeFont("mono_white");
 	}
 
 	@Override
@@ -233,9 +238,6 @@ public class MapScreen implements Screen {
 
 	@Override
 	public void dispose() {
-		stage.dispose();
-		ArtManager.getSingleton().disposeAtlas("gamescreen");
-		ArtManager.getSingleton().disposeFont("mono_white");
 	}
 
 	// gdx controls===============================
@@ -351,9 +353,13 @@ public class MapScreen implements Screen {
 						centerMenuOnUnit(null);
 					}
 					Command.nextTurn();
+				} else if (event.getListenerActor() == infoButton){
+					Nomad.game.setScreen(new PlanetInfoScr(null));
 				}
 			}
 		}
+		
+		
 
 		// helpers====================================
 	

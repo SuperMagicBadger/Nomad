@@ -1,15 +1,12 @@
 package com.greatcow.nomad.model;
 
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer.ShapeType;
 import com.badlogic.gdx.math.Vector2;
-import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.scenes.scene2d.Actor;
-import com.badlogic.gdx.scenes.scene2d.actions.MoveToAction;
-import com.badlogic.gdx.scenes.scene2d.actions.RotateByAction;
 import com.greatcow.nomad.Nomad;
+import com.greatcow.nomad.data.Economy;
 
 public class Planet extends Actor {
 	// varblok--------------------------
@@ -22,6 +19,8 @@ public class Planet extends Actor {
 	// orbit data
 	public Vector2 orbit = null;
 
+	//resource data
+	Economy econ;
 	// varblok==========================
 
 	public Planet() {
@@ -89,5 +88,15 @@ public class Planet extends Actor {
 
 	public float getCenterX() {
 		return getX() + getWidth() / 2f;
+	}
+	
+	public Economy setEcon(Economy e){
+		Economy oldecon = econ;
+		econ = e;
+		return oldecon;
+	}
+	
+	public Economy getEcon(){
+		return econ;
 	}
 }

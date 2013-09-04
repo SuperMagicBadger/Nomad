@@ -6,72 +6,29 @@ package com.greatcow.nomad.data;
  * @author Cow
  *
  */
-public class Economy {
-	//helpers--------------------------
-	/**
-	 * a class to manage the conversion of resource
-	 * units to usable supplies.  meant to be shared between
-	 * the same unit types to conserve memory
-	 * @author Cow
-	 *
-	 */
-	public class RUConverter{
-		//conversion rates
-		public float ruToAmmoRate = 1;
-		public float ruToSuppliesRate = 1;
-		public float ruToFuelRate = 1;
-		
-		public float ruToAmmo(float ru){
-			return ru * ruToAmmoRate;
-		}
-		public float ruToSupplies(float ru){
-			return ru * ruToSuppliesRate;
-		}
-		public float ruToFuel(float ru){
-			return ru * ruToFuelRate;
-		}
-	}
-	//helpers==========================
-	
+public class Economy {	
 	// varblok-------------------------
 	//resources
 	/** current resources */
-	int resourceUnits;
-	int ammo;
-	int supplies;
-	int fuel;
+	public int resourceUnits;
+	public int ammo;
+	public int supplies;
+	public int fuel;
 	//max counts
 	/** resource ceilings */
-	int maxResourceUnits;
-	int maxAmmo;
-	int maxSupplies;
-	int maxFuel;
+	public int maxResourceUnits;
+	public int maxAmmo;
+	public int maxSupplies;
+	public int maxFuel;
 	//deltas
 	/** the rate of RU change per turn*/
 	public int deltaRU;
 	public int deltaAmmo;
 	public int deltaSupplies;
 	public int deltaFuel;
-	//converter
-	public RUConverter converter;
 	// varblok=========================
+
 	
-	// constructor---------------------
-	public Economy(RUConverter converter){
-		resourceUnits = ammo = supplies = fuel = 0;
-		maxAmmo = maxFuel = maxResourceUnits = maxSupplies = -1;
-		this.converter = converter;
-	}
-	
-	public Economy(RUConverter converter, int resourceUnits, int ammo, int supplies, int fuel){
-		this.resourceUnits = resourceUnits;
-		this.ammo = ammo;
-		this.supplies = supplies;
-		this.fuel = fuel;
-		maxAmmo = maxFuel = maxResourceUnits = maxSupplies = -1;
-		this.converter = converter;
-	}
-	// constructor=====================
 	
 	// resource managers---------------
 	/**

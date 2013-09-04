@@ -263,17 +263,17 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="2.3464039"
-     inkscape:cx="347.15936"
-     inkscape:cy="943.47202"
+     inkscape:cx="130.04516"
+     inkscape:cy="892.32993"
      inkscape:document-units="px"
-     inkscape:current-layer="layer1"
+     inkscape:current-layer="g3201"
      showgrid="false"
      showguides="true"
      inkscape:guide-bbox="true"
-     inkscape:window-width="1920"
-     inkscape:window-height="1019"
-     inkscape:window-x="-32000"
-     inkscape:window-y="-32000"
+     inkscape:window-width="2160"
+     inkscape:window-height="1045"
+     inkscape:window-x="-1870"
+     inkscape:window-y="0"
      inkscape:window-maximized="0" />
   <metadata
      id="metadata3228">
@@ -440,5 +440,68 @@
        inkscape:export-filename="C:\Users\Cow\workspace\Nomad\imageworksace\gamescreen\black_planet.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90" />
+    <g
+       transform="translate(117.55403,-34.649704)"
+       id="g3201"
+       inkscape:export-filename="C:\Users\Cow\workspace\Nomad\Nomad\imageworksace\planetinfoscreen\box.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <g
+         id="g3383"
+         transform="translate(-213.94441,-5.9665772)"
+         inkscape:export-filename="C:\Users\Cow\workspace\Nomad\Nomad\imageworksace\gamescreen\g3383.png"
+         inkscape:export-xdpi="90"
+         inkscape:export-ydpi="90">
+        <rect
+           style="fill:#333a4f;fill-opacity:1;fill-rule:nonzero;stroke:none"
+           id="rect3070-9"
+           width="64"
+           height="64"
+           x="142.38206"
+           y="211.59358"
+           ry="6.2519002" />
+        <path
+           style="fill:#aab0b1;fill-opacity:1;fill-rule:nonzero;stroke:none"
+           d="m 161.50802,227.59359 25.74808,0 c 1.73178,0 3.12596,1.39418 3.12596,3.12595 l 0,25.7481 c 0,1.73177 -1.39418,3.12595 -3.12596,3.12595 l -25.74808,0 c -1.73178,0 -3.12596,-1.39418 -3.12596,-3.12595 l 0,-25.7481 c 0,-1.73177 1.39418,-3.12595 3.12596,-3.12595 z"
+           id="rect3070"
+           inkscape:connector-curvature="0" />
+      </g>
+      <rect
+         style="fill:#333a4f;fill-opacity:1;fill-rule:nonzero;stroke:none"
+         id="rect3825-3"
+         width="32"
+         height="32"
+         x="37.021191"
+         y="212.67578"
+         inkscape:export-filename="C:\Users\Cow\workspace\Nomad\Nomad\imageworksace\newgame\bgcol.png"
+         inkscape:export-xdpi="90"
+         inkscape:export-ydpi="90"
+         inkscape:transform-center-x="51.134238"
+         inkscape:transform-center-y="16.89502" />
+      <rect
+         style="fill:#aab0b1;fill-opacity:1;fill-rule:nonzero;stroke:none"
+         id="rect3940-2-1"
+         width="32"
+         height="32"
+         x="74.756142"
+         y="212.79211"
+         inkscape:export-filename="C:\Users\Cow\workspace\Nomad\Nomad\imageworksace\newgame\buttondown.png"
+         inkscape:export-xdpi="90"
+         inkscape:export-ydpi="90"
+         inkscape:transform-center-x="0.21839092"
+         inkscape:transform-center-y="15.999994" />
+      <rect
+         style="fill:#d8d9d2;fill-opacity:1;fill-rule:nonzero;stroke:none"
+         id="rect3940-6-2"
+         width="32"
+         height="32"
+         x="110.12168"
+         y="213.53087"
+         inkscape:export-filename="C:\Users\Cow\workspace\Nomad\Nomad\imageworksace\newgame\buttonup.png"
+         inkscape:export-xdpi="90"
+         inkscape:export-ydpi="90"
+         inkscape:transform-center-x="-51.875972"
+         inkscape:transform-center-y="16.000118" />
+    </g>
   </g>
 </svg>

@@ -4,10 +4,7 @@ import java.util.HashMap;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
-import com.badlogic.gdx.math.Circle;
 import com.badlogic.gdx.math.Vector2;
-import com.badlogic.gdx.physics.box2d.Transform;
-import com.badlogic.gdx.scenes.scene2d.Group;
 import com.badlogic.gdx.utils.Pool;
 import com.greatcow.nomad.Nomad;
 import com.greatcow.nomad.model.Level;
@@ -26,8 +23,11 @@ public class LevelManager {
 	private static LevelManager singleton = null;
 	//pools
 	Pool<Planet> planetPool;
+	Pool<Economy> econPool;
 	//generation paramiters
 	private HashMap<String, PlanetStyle> styleList;
+	private int ruDensity, suppDensity, ammoDensity, fuelDensity;
+	
 	// varblok===============
 	
 	// constructors------------------------------
@@ -46,6 +46,12 @@ public class LevelManager {
 				return new Planet();
 			}
 			
+		};
+		econPool = new Pool<Economy>(){
+			@Override
+			protected Economy newObject() {
+				return new Economy();
+			}
 		};
 	}
 	// constructors==============================
@@ -100,7 +106,7 @@ public class LevelManager {
 	}
 	// access====================================
 	
-	// manips------------------------------------
+	// world Generation--------------------------
 	public void readyLevel(){
 		if(activeLevel == null)
 			activeLevel = new Level();
@@ -108,6 +114,9 @@ public class LevelManager {
 		Planet[] arr = activeLevel.removeAllPlanets();
 		
 		for(Planet p : arr){
+			if(p.getEcon() != null){
+				econPool.free(p.setEcon(null));
+			}
 			planetPool.free(p);
 		}
 	}
@@ -130,6 +139,29 @@ public class LevelManager {
 		}
 		
 		return null;
+	}
+	
+	public Economy initEconomy(float ruPerc, float suppPerc, float ammoPerc, float fuelPerc){
+		// varblok
+		Economy econ = econPool.obtain();
+		// varblok
+		
+		econ.resourceUnits = (int) (ruDensity * ruPerc);
+		econ.supplies = (int) (suppDensity * suppPerc);
+		econ.ammo = (int) (ammoDensity * ammoPerc);
+		econ.fuel = (int) (fuelDensity * ammoPerc);
+		
+		econ.setRUDelta(0);
+		econ.setSupplyDelta(0);
+		econ.setAmmoDelta(0);
+		econ.setFuelDelta(0);
+		
+		econ.maxResourceUnits = Integer.MAX_VALUE;
+		econ.maxSupplies = Integer.MAX_VALUE;
+		econ.maxAmmo = Integer.MAX_VALUE;
+		econ.maxFuel = Integer.MAX_VALUE;
+		
+		return econ;
 	}
 	
 	public void generateLevel(int planetCount, float minDist, float maxDist){
@@ -159,6 +191,8 @@ public class LevelManager {
 			vec.set(i * (maxDist + minDist) / 2f + range, 0);
 			vec.rotate(rotation);
 			current.setPosition(vec.x, vec.y);
+			//give the planet an econ
+			
 			//get min and max values
 			minX = current.getX() < minX ? current.getX() : minX;
 			maxX = current.getRight() > maxX ? current.getRight() : maxX;
@@ -171,7 +205,7 @@ public class LevelManager {
 
 		//vec should retain the value of the last planets position
 		//so we just rangefind towards the sun
-		maxRadius = vec.dst(activeLevel.getPlanet(0).getX(), activeLevel.getPlanet(0).getY()) + 250;
+		maxRadius = vec.dst(activeLevel.getPlanet(0).getX(), activeLevel.getPlanet(0).getY()) + maxDist;
 		Gdx.app.log("LevelMan", "max radius: " + maxRadius);
 		
 		for(Planet p : activeLevel.getPlanets()){
@@ -185,6 +219,6 @@ public class LevelManager {
 		
 		Nomad.vectorPool.free(vec);
 	}
-	// manips====================================
+	// world generation==========================
 	
 }
