@@ -1,13 +1,8 @@
 package com.greatcow.nomad.model;
 
-import java.io.IOException;
 import java.util.ArrayList;
 
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.math.Rectangle;
-import com.badlogic.gdx.utils.XmlReader;
-import com.badlogic.gdx.utils.XmlReader.Element;
-import com.greatcow.nomad.data.CelestialFactory;
 
 public class Universe {	
 	// varblok-------------------------
@@ -15,9 +10,9 @@ public class Universe {
 	public ArrayList<Star> starlist;
 	private Node quadtree;
 	
-	private float startingRadius = 0;
-	private float mapWidth = 0;
-	private float mapHeight = 0;
+	public float startingRadius = 0;
+	public float mapWidth = 0;
+	public float mapHeight = 0;
 	// varblok=========================
 
 	// constructors------------------------------
@@ -49,30 +44,6 @@ public class Universe {
 
 	// manips------------------------------------
 	// manips====================================
-
-	// universe generation-----------------------
-	public void initUniverse() throws IOException {
-		XmlReader reader = new XmlReader();
-		
-		Element e = reader.parse(Gdx.files.internal("levels/universe.xml"));
-		startingRadius = e.getFloat("startingRadius");
-		mapWidth = e.getFloat("width");
-		mapHeight = e.getFloat("height");
-		
-		for(int i = 0; i < e.getChildCount(); i++){
-			
-		}
-		
-		Gdx.app.log("Universe", "size: (" + mapWidth + ", " + mapHeight + ") starting: " + startingRadius);
-
-		Star s = new Star();
-		s.atlasName = "gamescreen";
-		s.textureName = "black_sun";
-		quadtree.addStar(s);
-		starlist.add(s);
-	}
-
-	// universe generation=======================
 
 	// helpers-----------------------------------
 	/**

@@ -22,6 +22,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.TextButton.TextButtonStyle;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.greatcow.nomad.Nomad;
 import com.greatcow.nomad.data.ArtManager;
+import com.greatcow.nomad.data.CelestialFactory;
 import com.greatcow.nomad.model.Command;
 import com.greatcow.nomad.model.Universe;
 import com.greatcow.nomad.widgets.Spinner;
@@ -30,10 +31,19 @@ import com.greatcow.nomad.widgets.SpinnerStyle;
 public class NewGameScreen implements Screen{
 
 	// HELPERS-----------------------------------	
-	class LevelNameListener extends ClickListener{
+	private class ButtonListener extends ClickListener{
 		@Override
 		public void clicked(InputEvent event, float x, float y) {
-			super.clicked(event, x, y);
+			Gdx.app.log("NGScreen", "click");
+			if(event.getListenerActor() == newGameButton){
+				Gdx.app.log("NGScreen", "click ng button");
+				Command.createCommand(playerCounter.count);
+				CelestialFactory.getSingleton().generateUniverse("universe");
+				Nomad.game.setScreen(new UniverseScreen());
+			} else if (event.getListenerActor() == backButton){
+				Gdx.app.log("NGScreen", "click back button");
+				Nomad.game.setScreen(new MenuScreen());
+			}
 		}
 	}
 	
@@ -63,6 +73,8 @@ public class NewGameScreen implements Screen{
 	Label playerCounterLabel;
 	Label titleLabel;
 	Label mapsLabel;
+	//listeners
+	ButtonListener buttonListener;
 	// Varblok===================================
 	
 	@Override
@@ -84,13 +96,6 @@ public class NewGameScreen implements Screen{
 
 	@Override
 	public void show() {
-		
-		try {
-			Universe.getSingleton().initUniverse();
-		} catch (IOException e) {
-			Gdx.app.log("NGScreen", "error loading universe");
-			e.printStackTrace();
-		}
 		
 		//get image data
 		font = ArtManager.getSingleton().getFont("mono_white");
@@ -118,33 +123,17 @@ public class NewGameScreen implements Screen{
 		spinnerStyle.fontColor = Color.BLACK;
 		
 		//set up buttons
+		buttonListener = new ButtonListener();
+		
 		playerCounter = new Spinner(spinnerStyle);
 		
 		newGameButton = new TextButton("Start Game", tbStyle);
 		newGameButton.setPosition(Gdx.graphics.getWidth() - newGameButton.getWidth() - 20, 20);
-		newGameButton.addListener(new ClickListener(){
-			@Override
-			public void clicked(InputEvent event, float x, float y) {
-				Command.createCommand(playerCounter.count);
-				try {
-					Universe.getSingleton().initUniverse();
-				} catch (IOException e) {
-					e.printStackTrace();
-					assert false;
-				}
-				//LevelManager.getSingleton().generateLevel(10, 100, 400);
-				Nomad.game.setScreen(new UniverseScreen());
-			}
-		});
+		newGameButton.addListener(buttonListener);
 		
 		backButton = new TextButton("Back", tbStyle);
 		backButton.setPosition(20, 20);
-		backButton.addListener(new ClickListener(){
-			@Override
-			public void clicked(InputEvent event, float x, float y) {
-				Nomad.game.setScreen(new MenuScreen());
-			}
-		});
+		backButton.addListener(buttonListener);
 		
 		//setup labels
 		titleLabel = new Label("New Game:", lbStyle);

@@ -39,12 +39,14 @@ public class UniverseScreen implements Screen {
 	public void show() {
 		Universe u = Universe.getSingleton();
 		
+		Gdx.app.log("UScreen", "stars: " + u.stars().length);
 		for(Star s : u.stars()){
 			StarView sv = StarView.obtain(s);
 			viewList.add(sv);
 			stage.addActor(sv);
 		}
-
+		
+		Gdx.input.setInputProcessor(stage);
 	}
 
 	@Override
