@@ -1,4 +1,4 @@
-package com.greatcow.nomad.view;
+package com.greatcow.nomad.screens;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;

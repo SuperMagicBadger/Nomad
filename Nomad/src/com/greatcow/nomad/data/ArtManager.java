@@ -3,12 +3,12 @@ package com.greatcow.nomad.data;
 import java.util.HashMap;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 
 public class ArtManager {
-	
 	private class Counter <ITEMCLASS>{
 		public ITEMCLASS item;
 		public int count;
@@ -34,6 +34,7 @@ public class ArtManager {
 	
 	// varblok--------------------------
 	public static ArtManager single;
+	private AssetManager assets;
 	private HashMap<String, Counter<TextureAtlas> > atlasMap;
 	private HashMap<String, Counter<BitmapFont> > fontMap;
 	// varblok==========================

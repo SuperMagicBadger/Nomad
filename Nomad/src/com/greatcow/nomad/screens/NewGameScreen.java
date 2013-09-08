@@ -1,5 +1,7 @@
-package com.greatcow.nomad.view;
+package com.greatcow.nomad.screens;
 
+
+import java.io.IOException;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
@@ -20,7 +22,8 @@ import com.badlogic.gdx.scenes.scene2d.ui.TextButton.TextButtonStyle;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.greatcow.nomad.Nomad;
 import com.greatcow.nomad.data.ArtManager;
-import com.greatcow.nomad.data.LevelManager;
+import com.greatcow.nomad.model.Command;
+import com.greatcow.nomad.model.Universe;
 import com.greatcow.nomad.widgets.Spinner;
 import com.greatcow.nomad.widgets.SpinnerStyle;
 
@@ -81,7 +84,13 @@ public class NewGameScreen implements Screen{
 
 	@Override
 	public void show() {
-		Gdx.app.log("NGScreen", "" + LevelManager.getSingleton().getLevelsFiles().length);
+		
+		try {
+			Universe.getSingleton().initUniverse();
+		} catch (IOException e) {
+			Gdx.app.log("NGScreen", "error loading universe");
+			e.printStackTrace();
+		}
 		
 		//get image data
 		font = ArtManager.getSingleton().getFont("mono_white");
@@ -116,7 +125,15 @@ public class NewGameScreen implements Screen{
 		newGameButton.addListener(new ClickListener(){
 			@Override
 			public void clicked(InputEvent event, float x, float y) {
-				Nomad.game.setScreen(new MapScreen());
+				Command.createCommand(playerCounter.count);
+				try {
+					Universe.getSingleton().initUniverse();
+				} catch (IOException e) {
+					e.printStackTrace();
+					assert false;
+				}
+				//LevelManager.getSingleton().generateLevel(10, 100, 400);
+				Nomad.game.setScreen(new UniverseScreen());
 			}
 		});
 		

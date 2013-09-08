@@ -7,6 +7,7 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.Action;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.greatcow.nomad.Nomad;
+import com.greatcow.nomad.style.UnitStyle;
 
 public class Unit extends Actor {
 	// helpers-----------------------------------------------

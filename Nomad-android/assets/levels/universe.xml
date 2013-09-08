@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<universe width="64000" height="64000" startingRadius="30000">
+    
+    <star_style 
+        name="blue_sun" 
+        level="1" 
+        minPlanetCount="4" 
+        maxPlanetCount="6" 
+        minOrbitDist="600" 
+        maxOrbitDist="1000" 
+        atlas="gamescreen" 
+        texture="blue_circle">
+        
+        <planet name = "blue_planet"/>
+    </star_style>
+    
+    <star_style 
+        name="red_sun" 
+        level="2" 
+        minPlanetCount="6" 
+        maxPlanetCount="10"
+        minOrbitDist="400" 
+        maxOrbitDist="800" 
+        atlas="gamescreen" 
+        texture="red_circle">
+    	
+        <planet name="blue_planet"/>
+        <planet name="black_planet"/>
+   	</star_style>
+    
+    <planet_style name="black_planet" quality="0.5" atlas="gamescreen" texture="black_planet"/>
+    <planet_style name="blue_planet" quality="1" atlas="gamescreen" texture="planet"/>
+    
+</universe>

@@ -1,4 +1,4 @@
-package com.greatcow.nomad.view;
+package com.greatcow.nomad.screens;
 
 
 

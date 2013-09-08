@@ -1,10 +1,11 @@
-package com.greatcow.nomad.view;
+package com.greatcow.nomad.screens;
 
 
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputMultiplexer;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.graphics.Camera;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
@@ -25,12 +26,11 @@ import com.badlogic.gdx.scenes.scene2d.ui.TextButton.TextButtonStyle;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.greatcow.nomad.Nomad;
 import com.greatcow.nomad.data.ArtManager;
-import com.greatcow.nomad.data.LevelManager;
 import com.greatcow.nomad.model.Command;
 import com.greatcow.nomad.model.Level;
-import com.greatcow.nomad.model.PlanetStyle;
 import com.greatcow.nomad.model.Unit;
-import com.greatcow.nomad.model.UnitStyle;
+import com.greatcow.nomad.style.PlanetStyle;
+import com.greatcow.nomad.style.UnitStyle;
 
 public class MapScreen implements Screen {
 	// varblok------------------------------------
@@ -147,29 +147,28 @@ public class MapScreen implements Screen {
 		// PLANETS________________________________________________________________________
 		
 		//setup images
-		LevelManager lman = LevelManager.getSingleton();
 		
-		planetStyle = new PlanetStyle();
-		planetStyle.planetImage = skin.getRegion("planet");
-		planetStyle.maxScale = 2f;
-		planetStyle.minScale = 0.5f;
-		planetStyle.frequency = 0.5f;
-		
-		lman.registerStyle("planet", planetStyle);
-		
-		planetStyle = new PlanetStyle();
-		planetStyle.planetImage = skin.getRegion("black_planet");
-		planetStyle.maxScale = 2f;
-		planetStyle.minScale = 0.5f;
-		planetStyle.frequency = 0.5f;
-		
-		lman.registerStyle("black_planet", planetStyle);
-		
-		//generate level
-		lman.readyLevel();
-		lman.generateLevel(4, 100, 400);
-		
-		stage.addActor(lman.getActiveLevel());
+//		planetStyle = new PlanetStyle();
+//		planetStyle.planetImage = skin.getRegion("planet");
+//		planetStyle.maxScale = 2f;
+//		planetStyle.minScale = 0.5f;
+//		planetStyle.frequency = 0.5f;
+//		
+//		lman.registerPlanetStyle("planet", planetStyle);
+//		
+//		planetStyle = new PlanetStyle();
+//		planetStyle.planetImage = skin.getRegion("black_planet");
+//		planetStyle.maxScale = 2f;
+//		planetStyle.minScale = 0.5f;
+//		planetStyle.frequency = 0.5f;
+//		
+//		lman.registerPlanetStyle("black_planet", planetStyle);
+//		
+//		//generate level
+//		lman.readyLevel();
+//		lman.generateLevel(4, 100, 400);
+//		
+//		stage.addActor(lman.getActiveLevel());
 		
 		// PLANETS________________________________________________________________________
 		
@@ -296,28 +295,27 @@ public class MapScreen implements Screen {
 			@Override
 			public boolean pan(float x, float y, float deltaX, float deltaY) {
 				
-				final Camera camera = stage.getCamera();
-				final Level l = LevelManager.getSingleton().getActiveLevel();
+//				final Camera camera = stage.getCamera();
+//				
+//				final float cameraLeft = camera.position.x - (camera.viewportWidth / 2f);
+//				final float cameraRight = camera.position.x + (camera.viewportWidth / 2f);
+//				final float cameraTop = camera.position.y + (camera.viewportHeight / 2f);
+//				final float cameraBottom = camera.position.y - (camera.viewportHeight / 2f);
+//				
+//				Gdx.app.log("MapScr", "cam: " + cameraLeft + " " + cameraRight + " " + cameraTop + " " + cameraBottom);
+//				Gdx.app.log("MapScr", "lvl: " + l.getX() + " " + l.getRight() + " " + l.getTop() + " " + l.getY());
+//				
+//				if(cameraLeft - deltaX > l.getX() && cameraRight - deltaX < l.getRight()){
+//					camera.translate(-deltaX, 0, 0);
+//					uitable.translate(-deltaX, 0);
+//				}
+//				
+//				if(cameraBottom + deltaY > l.getY() && cameraTop + deltaY < l.getTop()){
+//					camera.translate(0, deltaY, 0);
+//					uitable.translate(0, deltaY);
+//				}
 				
-				final float cameraLeft = camera.position.x - (camera.viewportWidth / 2f);
-				final float cameraRight = camera.position.x + (camera.viewportWidth / 2f);
-				final float cameraTop = camera.position.y + (camera.viewportHeight / 2f);
-				final float cameraBottom = camera.position.y - (camera.viewportHeight / 2f);
-				
-				Gdx.app.log("MapScr", "cam: " + cameraLeft + " " + cameraRight + " " + cameraTop + " " + cameraBottom);
-				Gdx.app.log("MapScr", "lvl: " + l.getX() + " " + l.getRight() + " " + l.getTop() + " " + l.getY());
-				
-				if(cameraLeft - deltaX > l.getX() && cameraRight - deltaX < l.getRight()){
-					camera.translate(-deltaX, 0, 0);
-					uitable.translate(-deltaX, 0);
-				}
-				
-				if(cameraBottom + deltaY > l.getY() && cameraTop + deltaY < l.getTop()){
-					camera.translate(0, deltaY, 0);
-					uitable.translate(0, deltaY);
-				}
-				
-				return true;
+				return false;
 			}
 
 			@Override

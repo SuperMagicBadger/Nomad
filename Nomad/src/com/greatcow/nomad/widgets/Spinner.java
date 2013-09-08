@@ -15,7 +15,7 @@ public class Spinner extends Table{
 	Label l;
 	ImageButton up;
 	ImageButton down;
-	int count;
+	public int count;
 	// varblok=========================
 	
 	public Spinner(SpinnerStyle s){
@@ -65,5 +65,4 @@ public class Spinner extends Table{
 			l.setText(Integer.toString(count));
 		}
 	}
-	
 }
