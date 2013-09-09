@@ -2,7 +2,6 @@ package com.greatcow.nomad.style;
 
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
-import com.greatcow.nomad.data.ArtManager;
 
 public class PlanetStyle {
 

@@ -4,8 +4,6 @@ import java.io.IOException;
 import java.util.HashMap;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.g2d.TextureAtlas;
-import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.XmlReader;
 import com.badlogic.gdx.utils.XmlReader.Element;
@@ -24,13 +22,9 @@ public class CelestialFactory {
 	 * 
 	 */
 	public class PlanetType {
-
-		public String atlasName, regionName;
-		public TextureAtlas atlas;
-		public TextureRegion planetImage = null;
-		public float minScale, maxScale;
-		public float frequency;
-
+		public String atlasName, textureName;
+		public float level;
+		public float minRadius, maxRadius;
 	}
 
 	/**
@@ -51,6 +45,7 @@ public class CelestialFactory {
 
 	// varblok------------------------------
 	private static final String STAR_STYLE_TAG = "star_style";	
+	private static final String PLANET_STYLE_TAG = "planet_style";
 	private static CelestialFactory singleton;
 
 	HashMap<String, StarType> starList;
@@ -92,6 +87,8 @@ public class CelestialFactory {
 				Element child = e.getChild(i);
 				if(child.getName().compareTo(STAR_STYLE_TAG) == 0){
 					recordStarType(child);
+				} else if(child.getName().compareTo(PLANET_STYLE_TAG) == 0){
+					recordPlanetType(child);
 				}
 			}
 		} catch (IOException e1) {
@@ -109,13 +106,17 @@ public class CelestialFactory {
 	// universe generator=====
 
 	// star generation--------
-	public Star generateStar(String starTypeName) {
+	public Star generateStar(String starTypeName, Vector2 position){
+		return generateStar(starTypeName, position.x, position.y);
+	}
+	public Star generateStar(String starTypeName, float x, float y) {
 		StarType type = starList.get(starTypeName);
 		if (type != null) {
 			Star s = new Star();
 
 			s.setImage(type.atlasName, type.textureName);
-
+			s.position.set(x, y);
+			
 			return s;
 		}
 		return null;
@@ -135,6 +136,7 @@ public class CelestialFactory {
 			// orbit dists
 			st.minOrbitDist = starDescriptor.getFloat("minOrbitDist", 500);
 			st.maxOrbitDist = starDescriptor.getFloat("maxOrbitDist", 1000);
+			//add to collection
 			recordStarType(starDescriptor.get("name", "default"), st);
 		}
 	}
@@ -151,6 +153,27 @@ public class CelestialFactory {
 	// planet generation------
 	public Planet generatePlanet(String planetType) {
 		return null;
+	}
+	
+	public void recordPlanetType(Element planetDescriptor){
+		if(planetDescriptor.getName().compareTo(PLANET_STYLE_TAG) == 0){
+			PlanetType pt = new PlanetType();
+			//textures
+			pt.atlasName = planetDescriptor.get("atlas");
+			pt.textureName = planetDescriptor.get("texture");
+			//planet data
+			pt.minRadius = planetDescriptor.getFloat("minRadius");
+			pt.maxRadius = planetDescriptor.getFloat("maxRadius");
+			//add to collection
+			recordPlanetType(planetDescriptor.get("name", "default"), pt);
+		}
+	}
+	
+	public void recordPlanetType(String name, PlanetType type){
+		if(planetList.containsKey(name) || planetList.containsValue(type)){
+			return;
+		}
+		planetList.put(name, type);
 	}
 	// planet generation======
 

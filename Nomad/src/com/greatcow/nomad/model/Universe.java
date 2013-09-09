@@ -43,6 +43,15 @@ public class Universe {
 	// access====================================
 
 	// manips------------------------------------
+	public void addStar(Star s){
+		quadtree.addStar(s);
+		starlist.add(s);
+	}
+	public void addStar(Star[] s){
+		for(Star star : s){
+			addStar(star);
+		}
+	}
 	// manips====================================
 
 	// helpers-----------------------------------

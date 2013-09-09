@@ -1,8 +1,6 @@
 package com.greatcow.nomad.screens;
 
 
-import java.io.IOException;
-
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.Color;
@@ -24,7 +22,6 @@ import com.greatcow.nomad.Nomad;
 import com.greatcow.nomad.data.ArtManager;
 import com.greatcow.nomad.data.CelestialFactory;
 import com.greatcow.nomad.model.Command;
-import com.greatcow.nomad.model.Universe;
 import com.greatcow.nomad.widgets.Spinner;
 import com.greatcow.nomad.widgets.SpinnerStyle;
 

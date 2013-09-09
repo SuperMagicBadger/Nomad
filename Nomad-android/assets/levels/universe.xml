@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <universe width="64000" height="64000" startingRadius="30000">
+
+    <!--
+    Define all the style 
+     -->
     
     <star_style 
         name="blue_sun" 
@@ -29,7 +33,32 @@
         <planet name="black_planet"/>
    	</star_style>
     
-    <planet_style name="black_planet" quality="0.5" atlas="gamescreen" texture="black_planet"/>
-    <planet_style name="blue_planet" quality="1" atlas="gamescreen" texture="planet"/>
+    <planet_style 
+        name="black_planet" 
+        atlas="gamescreen" 
+        texture="black_planet"  
+        level="0.5"
+        minRadius="64"
+        maxRadius="128">
+    </planet_style>
+    
+    <planet_style
+        name="blue_planet" 
+        atlas="gamescreen" 
+        texture="planet" 
+        level="1"
+        minRadius="64"
+        maxRadius="128">
+    </planet_style>
+    
+    <!--
+    Begin defining the universe generation
+    paramiters 
+     -->
+     
+     <random_table count="100" startX="0" startY="0" endX="64000" endY="64000">
+         <star name="blue_sun" frequency="0.50"/>
+         <star name="red_sun" frequency="0.50"/>
+     </random_table>
     
 </universe>
