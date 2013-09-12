@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.greatcow.nomad.Nomad;
+import com.greatcow.nomad.view.StarView;
 
 /**
  * model representation of a star.  Used for drawing it in the universe
@@ -40,7 +41,8 @@ public class Star {
 	
 	// access----------------------------------------------
 	public Actor getActor(){
-		return null;
+		StarView v = StarView.obtain(this);
+		return v;
 	}
 	// access==============================================
 }

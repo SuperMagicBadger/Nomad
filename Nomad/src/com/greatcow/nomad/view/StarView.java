@@ -54,7 +54,9 @@ public class StarView extends Actor {
 		atlas = ArtManager.getSingleton().getAtlas(model.atlasName);
 		region = atlas.findRegion(model.textureName);
 		
+		
 		//setup actor
+		setPosition(model.position.x, model.position.y);
 		setWidth(region.getRegionWidth());
 		setHeight(region.getRegionHeight());
 	}

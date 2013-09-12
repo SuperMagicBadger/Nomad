@@ -1,13 +1,16 @@
 package com.greatcow.nomad.data;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.XmlReader;
 import com.badlogic.gdx.utils.XmlReader.Element;
-import com.greatcow.nomad.model.Planet;
+import com.greatcow.nomad.Nomad;
+import com.greatcow.nomad.model.PlanetModel;
 import com.greatcow.nomad.model.Star;
 import com.greatcow.nomad.model.Universe;
 
@@ -15,6 +18,19 @@ public class CelestialFactory {
 
 	// helper classes-----------------------
 
+	/**
+	 * rules for randomly generating stars
+	 * in a universe
+	 * 
+	 * @author Cow
+	 *
+	 */
+	public class RandomTableType{
+		public Rectangle bounds;
+		public int count;
+		public HashMap<String, Float> frequency;
+	}
+	
 	/**
 	 * Rules for generating a planet
 	 * 
@@ -74,6 +90,7 @@ public class CelestialFactory {
 		//vars
 		Universe u = Universe.getSingleton();
 		XmlReader reader = new XmlReader();
+		ArrayList<RandomTableType> tables = new ArrayList<RandomTableType>();
 		
 		//pull xml data
 		try {
@@ -89,11 +106,23 @@ public class CelestialFactory {
 					recordStarType(child);
 				} else if(child.getName().compareTo(PLANET_STYLE_TAG) == 0){
 					recordPlanetType(child);
+				} else if(child.getName().compareTo("random_table") == 0){
+					tables.add(randomTable(child));
 				}
 			}
 		} catch (IOException e1) {
 			Gdx.app.error("CelFactory", e1.getMessage());
 			e1.printStackTrace();
+		}
+		
+		//do the random generation
+		for(RandomTableType t : tables){ 
+			for(String stName : t.frequency.keySet()){
+				final int count = (int) (t.count * t.frequency.get(stName));
+				for(int i = 0; i < count; i++){
+					Star s = generateStar(stName, Nomad.vectorPool.obtain());
+				}
+			}
 		}
 		
 		//log and return
@@ -103,6 +132,29 @@ public class CelestialFactory {
 		return u;
 	}
 
+	public RandomTableType randomTable(Element e){
+		if(e.getName().compareTo("random_table") == 0){
+			RandomTableType table = new RandomTableType();
+			table.bounds = new Rectangle();
+			table.bounds.x = e.getFloat("startX", 0);
+			table.bounds.y = e.getFloat("startY", 0);
+			table.bounds.width = e.getFloat("width");
+			table.bounds.height = e.getFloat("height");
+			
+			Element child;
+			
+			for(int i = 0; i < e.getChildCount(); i++){
+				child = e.getChild(i);;
+				String name = child.get("star", "default");
+				float freq = child.getFloat("frequency", 0);
+				
+				table.frequency.put(name, freq);
+			}
+			
+			return table;
+		}
+		return null;
+	}
 	// universe generator=====
 
 	// star generation--------
@@ -151,7 +203,16 @@ public class CelestialFactory {
 	// star generation========
 
 	// planet generation------
-	public Planet generatePlanet(String planetType) {
+	public PlanetModel generatePlanet(String planetType) {
+		PlanetType pt = planetList.get(planetType);
+		if(pt != null){
+			PlanetModel p = new PlanetModel();
+			
+			p.atlasName = pt.atlasName;
+			p.textureName = pt.textureName;
+			
+			return p;
+		} 
 		return null;
 	}
 	
