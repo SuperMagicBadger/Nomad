@@ -3,6 +3,7 @@ package com.greatcow.nomad.model;
 import java.util.ArrayList;
 
 import com.badlogic.gdx.math.Rectangle;
+import com.badlogic.gdx.math.Vector2;
 
 public class Universe {	
 	// varblok-------------------------
@@ -43,9 +44,11 @@ public class Universe {
 	// access====================================
 
 	// manips------------------------------------
-	public void addStar(Star s){
+	public boolean addStar(Star s){
+		
 		quadtree.addStar(s);
 		starlist.add(s);
+		return true;
 	}
 	public void addStar(Star[] s){
 		for(Star star : s){
@@ -54,6 +57,18 @@ public class Universe {
 	}
 	// manips====================================
 
+	// map queries---------------------------------------------
+	
+	public Star nearestStar(float x, float y){
+		return null;
+	}
+	
+	public Star nearestStar(Vector2 pos){
+		return nearestStar(pos.x, pos.y);
+	}
+	
+	// map queries=================================
+	
 	// helpers-----------------------------------
 	/**
 	 * quadtree node

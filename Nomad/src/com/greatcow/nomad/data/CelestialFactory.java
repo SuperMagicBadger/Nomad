@@ -120,7 +120,8 @@ public class CelestialFactory {
 			for(String stName : t.frequency.keySet()){
 				final int count = (int) (t.count * t.frequency.get(stName));
 				for(int i = 0; i < count; i++){
-					Star s = generateStar(stName, Nomad.vectorPool.obtain());
+					Star s = generateStar(stName, Vector2.Zero);
+					
 				}
 			}
 		}
