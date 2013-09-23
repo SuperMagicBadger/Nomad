@@ -28,7 +28,7 @@ public class CelestialFactory {
 	public class RandomTableType{
 		public Rectangle bounds;
 		public int count;
-		public HashMap<String, Float> frequency;
+		public HashMap<String, Float> frequency = new HashMap<String, Float>();
 	}
 	
 	/**
