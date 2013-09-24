@@ -3,19 +3,16 @@ package com.greatcow.nomad;
 import java.util.Random;
 
 import com.badlogic.gdx.Game;
-import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
-import com.badlogic.gdx.math.Vector2;
-import com.badlogic.gdx.utils.Pool;
-import com.greatcow.nomad.screens.MenuScreen;
+import com.greatcow.nomad.actors.SystemModel;
+import com.greatcow.nomad.data.SystemFactory;
+import com.greatcow.nomad.screens.Map;
 
 public class Nomad extends Game {
 	//varblok--------------------------
 	public static Nomad game;
 	public static ShapeRenderer shapeRenderer;
-	public static Pool<Vector2> vectorPool;
 	public static Random rng;
-	public static AssetManager assetManager;
 	
 	public static final String imageDir = "images/";
 	public static final String imageExt = ".pack";
@@ -23,23 +20,26 @@ public class Nomad extends Game {
 	public static final String fontDir = "fonts/";
 	public static final String fontExt = ".fnt";
 	
+	public static final SystemFactory systemFactory = new SystemFactory();
+	
+	public Map mapScreen;
 	//varblok==========================
 
 	@Override
 	public void create() {
+		System.out.println("aSdf");
+		
 		game = this;
 		shapeRenderer = new ShapeRenderer();
 		rng = new Random();
-		assetManager = new AssetManager();
 		
-		vectorPool = new Pool<Vector2>(){
-			@Override
-			protected Vector2 newObject() {
-				return new Vector2(0, 0);
-			}
-		};
+		mapScreen = new Map();
 		
-		setScreen(new MenuScreen());
+		SystemModel model = systemFactory.loadModel("newLevelFormat");
+		
+		mapScreen.setSystemDraw(model);
+		
+		setScreen(mapScreen);
 	}
 	
 	@Override

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<SystemModel atlas="gamescreen" texture="black_planet">
+    
+    <Planet atlas="gamescreen" texture="planet" radius="100"/>
+    <Planet atlas="gamescreen" texture="planet" radius="200"/>
+    <Planet atlas="gamescreen" texture="planet" radius="300"/>
+    <Planet atlas="gamescreen" texture="planet" radius="400"/>
+    
+</SystemModel>
