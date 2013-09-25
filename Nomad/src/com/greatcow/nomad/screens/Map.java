@@ -22,7 +22,7 @@ public class Map  implements Screen{
 	// Screen------------------------------------
 	@Override
 	public void render(float delta) {
-		Gdx.gl.glClearColor(1, 1, 1, 1);
+		Gdx.gl.glClearColor(0, 0, 0, 1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 		
 		if(systemModel != null){
@@ -35,6 +35,7 @@ public class Map  implements Screen{
 	public void resize(int width, int height) {
 		if(systemModel != null){
 			systemModel.setViewport(width, height, false);
+			systemModel.bg.resize(width, height);
 		}
 	}
 

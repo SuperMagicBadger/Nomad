@@ -17,23 +17,37 @@ biggrid
   orig: 128, 128
   offset: 0, 0
   index: -1
+bluestars
+  rotate: false
+  xy: 131, 19
+  size: 128, 128
+  orig: 128, 128
+  offset: 0, 0
+  index: -1
+whitestars
+  rotate: false
+  xy: 310, 85
+  size: 128, 128
+  orig: 128, 128
+  offset: 0, 0
+  index: -1
 littlegrid
   rotate: false
-  xy: 131, 20
+  xy: 440, 86
   size: 127, 127
   orig: 127, 127
   offset: 0, 0
   index: -1
 bgcol
   rotate: false
-  xy: 310, 197
+  xy: 1, 1
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 buttondown
   rotate: false
-  xy: 1, 1
+  xy: 261, 131
   size: 16, 16
   split: 0, 0, 0, 0
   orig: 16, 16
@@ -41,7 +55,7 @@ buttondown
   index: -1
 buttonup
   rotate: false
-  xy: 260, 131
+  xy: 569, 197
   size: 16, 16
   split: 0, 0, 0, 0
   orig: 16, 16
