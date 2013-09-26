@@ -16,6 +16,9 @@ public class Map  implements Screen{
 		systemModel = system;
 		systemModel.setViewport(Gdx.graphics.getWidth(), Gdx.graphics.getHeight(), false);
 		systemModel.getCamera().translate(Gdx.graphics.getWidth() / 2f, Gdx.graphics.getHeight() / 2f, 0f);
+		System.out.println(systemModel.getCamera().viewportWidth);
+		systemModel.getCamera().translate(systemModel.getCamera().viewportWidth, systemModel.getCamera().viewportHeight / -2f, 0);
+		systemModel.getCamera().update();
 		Gdx.input.setInputProcessor(systemModel.multiplexer);
 	}
 	

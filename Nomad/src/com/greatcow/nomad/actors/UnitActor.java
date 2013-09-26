@@ -7,4 +7,10 @@ public class UnitActor extends Actor{
 	public String atlasName;
 	public String textureName;
 	// varblok===================================
+	
+	public UnitActor(String atlas, String texture) {
+		
+	}
+	
+	
 }

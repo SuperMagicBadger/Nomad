@@ -30,11 +30,11 @@
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
-     inkscape:window-width="759"
-     inkscape:window-height="628"
-     inkscape:window-x="120"
-     inkscape:window-y="120"
-     inkscape:window-maximized="0"
+     inkscape:window-width="1920"
+     inkscape:window-height="1019"
+     inkscape:window-x="-9"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1"
      showguides="true"
      inkscape:guide-bbox="true">
     <inkscape:grid
@@ -53,7 +53,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -206,59 +206,21 @@
          d="m 80,292.36218 80,0"
          style="fill:none;stroke:#77dff3;stroke-width:1.32835034;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
     </g>
-    <g
-       id="g3855-9"
-       style="stroke:#77dff3;stroke-width:1.32835031;stroke-opacity:1"
-       transform="matrix(1.5738669,0,0,1.5738669,34.262944,-93.731653)"
-       inkscape:export-filename="C:\Users\Cow\workspace\Nomad\imageworksace\propermain\biggrid.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90">
-      <path
-         inkscape:connector-curvature="0"
-         id="path3827-4"
-         d="m 80,292.36218 0,80"
-         style="fill:none;stroke:#77dff3;stroke-width:1.32835031;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
-      <path
-         inkscape:connector-curvature="0"
-         id="path3829-8"
-         d="m 100,292.36218 0,80"
-         style="fill:none;stroke:#77dff3;stroke-width:1.32835031;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
-      <path
-         inkscape:connector-curvature="0"
-         id="path3831-8"
-         d="m 120,292.36218 0,80"
-         style="fill:none;stroke:#77dff3;stroke-width:1.32835031;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
-      <path
-         inkscape:connector-curvature="0"
-         id="path3833-2"
-         d="m 140,292.36218 0,80"
-         style="fill:none;stroke:#77dff3;stroke-width:1.32835031;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
-      <path
-         inkscape:connector-curvature="0"
-         id="path3845-4"
-         d="m 160,292.36218 0,80 -80,0"
-         style="fill:none;stroke:#77dff3;stroke-width:1.32835031;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
-      <path
-         inkscape:connector-curvature="0"
-         id="path3847-5"
-         d="m 80,352.36218 80,0"
-         style="fill:none;stroke:#77dff3;stroke-width:1.32835031;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
-      <path
-         inkscape:connector-curvature="0"
-         id="path3849-5"
-         d="m 80,332.36218 80,0"
-         style="fill:none;stroke:#77dff3;stroke-width:1.32835031;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
-      <path
-         inkscape:connector-curvature="0"
-         id="path3851-1"
-         d="m 80,312.36218 80,0"
-         style="fill:none;stroke:#77dff3;stroke-width:1.32835031;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
-      <path
-         inkscape:connector-curvature="0"
-         id="path3853-7"
-         d="m 80,292.36218 80,0"
-         style="fill:none;stroke:#77dff3;stroke-width:1.32835031;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
-    </g>
+    <path
+       style="fill:none;stroke:#77dff3;stroke-width:1.63331759;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 55.572453,386.91248 0,98.36668"
+       id="path3827-4"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;stroke:#77dff3;stroke-width:1.63331759;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 153.93913,386.91248 0,98.36668 -98.366677,0"
+       id="path3845-4"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;stroke:#77dff3;stroke-width:1.63331759;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 55.572453,386.91248 98.366677,0"
+       id="path3853-7"
+       inkscape:connector-curvature="0" />
     <text
        xml:space="preserve"
        style="font-size:78.16264343px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#f9f9f9;fill-opacity:1;stroke:#000000;stroke-width:1.15188503;font-family:Vijaya;-inkscape-font-specification:Vijaya"
@@ -317,7 +279,7 @@
     <g
        id="g3855-9-7"
        style="stroke:#8f8c91;stroke-width:0.63537776;stroke-opacity:1"
-       transform="matrix(1.5738669,0,0,1.5738669,181.05914,-92.995263)"
+       transform="matrix(1.2401504,0,0,1.2401504,207.65044,31.374137)"
        inkscape:export-filename="C:\Users\Cow\workspace\Nomad\imageworksace\propermain\littlegrid.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90">

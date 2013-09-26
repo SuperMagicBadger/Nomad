@@ -262,19 +262,19 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="2.3464039"
-     inkscape:cx="130.04516"
-     inkscape:cy="892.32993"
+     inkscape:zoom="0.82957906"
+     inkscape:cx="146.24354"
+     inkscape:cy="563.01961"
      inkscape:document-units="px"
-     inkscape:current-layer="g3201"
+     inkscape:current-layer="layer1"
      showgrid="false"
      showguides="true"
      inkscape:guide-bbox="true"
-     inkscape:window-width="2160"
-     inkscape:window-height="1045"
-     inkscape:window-x="-1870"
-     inkscape:window-y="0"
-     inkscape:window-maximized="0" />
+     inkscape:window-width="1920"
+     inkscape:window-height="1019"
+     inkscape:window-x="-9"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1" />
   <metadata
      id="metadata3228">
     <rdf:RDF>
@@ -396,7 +396,8 @@
        id="g3290"
        inkscape:export-filename="C:\Users\Cow\workspace\Nomad\imageworksace\propermain\gamescreen\arrowUp.png"
        inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90">
+       inkscape:export-ydpi="90"
+       transform="translate(300.15223,-10.848876)">
       <g
          id="g3273">
         <path
@@ -415,7 +416,8 @@
        id="g3308"
        inkscape:export-filename="C:\Users\Cow\workspace\Nomad\imageworksace\propermain\gamescreen\arrowDown.png"
        inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90">
+       inkscape:export-ydpi="90"
+       transform="translate(300.15223,-10.848876)">
       <path
          id="rect3203-3"
          d="m 376.73205,23.210619 -7.03125,7.9375 -0.125,0.0625 0,16 7.25,7.90625 -0.28125,0.09375 25.03125,0 0,-32 -24.84375,0 z"
@@ -436,12 +438,12 @@
        sodipodi:rx="28.767426"
        sodipodi:ry="18.325916"
        d="m 400.61304,113.05247 a 28.767426,18.325916 0 1 1 -57.53485,0 28.767426,18.325916 0 1 1 57.53485,0 z"
-       transform="matrix(1.1123693,0,0,1.746161,-39.403812,-84.391533)"
+       transform="matrix(1.1123693,0,0,1.746161,-88.826468,-150.69022)"
        inkscape:export-filename="C:\Users\Cow\workspace\Nomad\imageworksace\gamescreen\black_planet.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90" />
     <g
-       transform="translate(117.55403,-34.649704)"
+       transform="translate(81.391111,-47.909441)"
        id="g3201"
        inkscape:export-filename="C:\Users\Cow\workspace\Nomad\Nomad\imageworksace\planetinfoscreen\box.png"
        inkscape:export-xdpi="90"
@@ -503,5 +505,129 @@
          inkscape:transform-center-x="-51.875972"
          inkscape:transform-center-y="16.000118" />
     </g>
+    <g
+       id="g3126"
+       transform="translate(-185.63632,-55.449809)"
+       inkscape:export-filename="C:\Users\Cow\workspace\Nomad\Nomad\imageworksace\gamescreen\orange_sun.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <path
+         transform="matrix(1.0835318,0,0,1.0835318,-18.627986,-48.03177)"
+         d="m 459.26907,456.87946 c 0,65.24261 -52.88958,118.1322 -118.1322,118.1322 -65.24261,0 -118.1322,-52.88959 -118.1322,-118.1322 0,-65.24262 52.88959,-118.13221 118.1322,-118.13221 65.24262,0 118.1322,52.88959 118.1322,118.13221 z"
+         sodipodi:ry="118.1322"
+         sodipodi:rx="118.1322"
+         sodipodi:cy="456.87946"
+         sodipodi:cx="341.13687"
+         id="path3050"
+         style="fill:#ff6600;fill-opacity:1;fill-rule:nonzero;stroke:none"
+         sodipodi:type="arc" />
+      <path
+         transform="matrix(0.93557261,0,0,0.94067465,27.402989,12.63936)"
+         d="m 459.26907,456.87946 c 0,65.24261 -52.88958,118.1322 -118.1322,118.1322 -65.24261,0 -118.1322,-52.88959 -118.1322,-118.1322 0,-65.24262 52.88959,-118.13221 118.1322,-118.13221 65.24262,0 118.1322,52.88959 118.1322,118.13221 z"
+         sodipodi:ry="118.1322"
+         sodipodi:rx="118.1322"
+         sodipodi:cy="456.87946"
+         sodipodi:cx="341.13687"
+         id="path3050-4"
+         style="fill:#ff9955;fill-opacity:1;fill-rule:nonzero;stroke:none"
+         sodipodi:type="arc" />
+      <path
+         transform="matrix(0.76210322,0,0,0.79271547,84.771665,71.198141)"
+         d="m 459.26907,456.87946 c 0,65.24261 -52.88958,118.1322 -118.1322,118.1322 -65.24261,0 -118.1322,-52.88959 -118.1322,-118.1322 0,-65.24262 52.88959,-118.13221 118.1322,-118.13221 65.24262,0 118.1322,52.88959 118.1322,118.13221 z"
+         sodipodi:ry="118.1322"
+         sodipodi:rx="118.1322"
+         sodipodi:cy="456.87946"
+         sodipodi:cx="341.13687"
+         id="path3050-4-0"
+         style="fill:#ffb380;fill-opacity:1;fill-rule:nonzero;stroke:none"
+         sodipodi:type="arc" />
+    </g>
+    <path
+       sodipodi:type="arc"
+       style="fill:#4949ff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       id="path3131"
+       sodipodi:cx="442.99576"
+       sodipodi:cy="377.32104"
+       sodipodi:rx="40.381927"
+       sodipodi:ry="56.655239"
+       d="m 483.37769,377.32104 a 40.381927,56.655239 0 1 1 -80.76386,0 40.381927,56.655239 0 1 1 80.76386,0 z"
+       transform="matrix(3.1697348,0,0,2.2592791,-938.65848,-460.91171)"
+       inkscape:export-filename="C:\Users\Cow\workspace\Nomad\Nomad\imageworksace\gamescreen\blue_sun.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       sodipodi:type="arc"
+       style="fill:#0000ff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       id="path3131-9"
+       sodipodi:cx="442.99576"
+       sodipodi:cy="377.32104"
+       sodipodi:rx="40.381927"
+       sodipodi:ry="56.655239"
+       d="m 483.37769,377.32104 a 40.381927,56.655239 0 1 1 -80.76386,0 40.381927,56.655239 0 1 1 80.76386,0 z"
+       transform="matrix(2.5876453,0,0,1.8443855,-680.41698,-313.18)"
+       inkscape:export-filename="C:\Users\Cow\workspace\Nomad\Nomad\imageworksace\gamescreen\blue_sun.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       sodipodi:type="arc"
+       style="fill:#000080;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       id="path3131-9-4"
+       sodipodi:cx="442.99576"
+       sodipodi:cy="377.32104"
+       sodipodi:rx="40.381927"
+       sodipodi:ry="56.655239"
+       d="m 483.37769,377.32104 a 40.381927,56.655239 0 1 1 -80.76386,0 40.381927,56.655239 0 1 1 80.76386,0 z"
+       transform="matrix(2.0204811,0,0,1.4401302,-437.0009,-170.89213)"
+       inkscape:export-filename="C:\Users\Cow\workspace\Nomad\Nomad\imageworksace\gamescreen\blue_sun.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <g
+       id="g3978"
+       inkscape:export-filename="C:\Users\Cow\workspace\Nomad\Nomad\imageworksace\gamescreen\green_planet.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"
+       transform="matrix(0.39062501,0,0,0.39062501,81.173343,338.27296)">
+      <path
+         transform="matrix(3.1697348,0,0,2.2592791,-1243.8568,-170.17857)"
+         d="m 483.37769,377.32104 c 0,31.28983 -18.07961,56.65524 -40.38193,56.65524 -22.30232,0 -40.38193,-25.36541 -40.38193,-56.65524 0,-31.28982 18.07961,-56.65523 40.38193,-56.65523 22.30232,0 40.38193,25.36541 40.38193,56.65523 z"
+         sodipodi:ry="56.655239"
+         sodipodi:rx="40.381927"
+         sodipodi:cy="377.32104"
+         sodipodi:cx="442.99576"
+         id="path3131-8"
+         style="fill:#008000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+         sodipodi:type="arc" />
+      <path
+         transform="matrix(2.5876453,0,0,1.8443855,-976.35018,-28.095647)"
+         d="m 483.37769,377.32104 c 0,31.28983 -18.07961,56.65524 -40.38193,56.65524 -22.30232,0 -40.38193,-25.36541 -40.38193,-56.65524 0,-31.28982 18.07961,-56.65523 40.38193,-56.65523 22.30232,0 40.38193,25.36541 40.38193,56.65523 z"
+         sodipodi:ry="56.655239"
+         sodipodi:rx="40.381927"
+         sodipodi:cy="377.32104"
+         sodipodi:cx="442.99576"
+         id="path3131-9-8"
+         style="fill:#00ff00;fill-opacity:1;fill-rule:nonzero;stroke:none"
+         sodipodi:type="arc" />
+    </g>
+    <path
+       sodipodi:type="arc"
+       style="fill:none;stroke:#ff0000"
+       id="path3131-2"
+       sodipodi:cx="442.99576"
+       sodipodi:cy="377.32104"
+       sodipodi:rx="40.381927"
+       sodipodi:ry="56.655239"
+       d="m 483.37769,377.32104 a 40.381927,56.655239 0 1 1 -80.76386,0 40.381927,56.655239 0 1 1 80.76386,0 z"
+       transform="matrix(3.6761054,0,0,2.6202028,-1153.9316,-293.9362)"
+       inkscape:export-filename="C:\Users\Cow\workspace\Nomad\Nomad\imageworksace\gamescreen\planet_selector.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#ff0000;stroke-width:10;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 693.12261,561.75192 0,272.42732"
+       id="path4002"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="C:\Users\Cow\workspace\Nomad\Nomad\imageworksace\gamescreen\red_line.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
   </g>
 </svg>
