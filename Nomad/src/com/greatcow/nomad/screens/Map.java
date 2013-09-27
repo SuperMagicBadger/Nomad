@@ -4,6 +4,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
 import com.greatcow.nomad.actors.SystemModel;
+import com.greatcow.nomad.control.SystemInput;
 
 public class Map  implements Screen{
 
@@ -19,7 +20,7 @@ public class Map  implements Screen{
 		System.out.println(systemModel.getCamera().viewportWidth);
 		systemModel.getCamera().translate(systemModel.getCamera().viewportWidth, systemModel.getCamera().viewportHeight / -2f, 0);
 		systemModel.getCamera().update();
-		Gdx.input.setInputProcessor(systemModel.multiplexer);
+		Gdx.input.setInputProcessor(new SystemInput(systemModel));
 	}
 	
 	// Screen------------------------------------

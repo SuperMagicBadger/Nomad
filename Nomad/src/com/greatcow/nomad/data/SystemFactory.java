@@ -1,20 +1,26 @@
 package com.greatcow.nomad.data;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.XmlReader;
 import com.badlogic.gdx.utils.XmlReader.Element;
 import com.greatcow.nomad.Nomad;
 import com.greatcow.nomad.actors.PlanetActor;
 import com.greatcow.nomad.actors.SystemModel;
+import com.greatcow.nomad.shineys.ParallaxBackground;
+import com.greatcow.nomad.shineys.ParallaxLayer;
 
 public class SystemFactory {
 	
 	// load a map from file----------------------
 	
+	private static final String background_root = "Background";
 	private static final String level_root = "SystemModel";
 	private static final String planet_root = "Planet";
+	
 	private static final String atlas_tag = "atlas";
 	private static final String texture_tag = "texture";
 	private static final String radius_tag = "radius";
@@ -48,6 +54,12 @@ public class SystemFactory {
 		
 		
 		return model;
+	}
+	
+	public ParallaxBackground getLayer(Element e){
+		ArrayList<ParallaxLayer> layers;
+		
+		return new ParallaxBackground(null, Gdx.graphics.getWidth(), Gdx.graphics.getHeight(), Vector2.Zero);
 	}
 	
 	public PlanetActor createActor(Element e, int count){

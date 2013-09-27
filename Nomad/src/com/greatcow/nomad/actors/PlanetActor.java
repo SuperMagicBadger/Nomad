@@ -5,6 +5,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer.ShapeType;
+import com.badlogic.gdx.math.Circle;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.greatcow.nomad.Nomad;
 import com.greatcow.nomad.data.ArtManager;
@@ -17,21 +18,10 @@ public class PlanetActor extends Actor {
 	// drawing
 	public String atlasName, textureName;
 	public TextureRegion image;
+	// collision
+	private Circle colCircle;
 
 	// varblok=========================
-
-	public static void main(String[] args) {
-		PlanetActor a = new PlanetActor();
-		a.setOrbitPosition(10, 90);
-		System.out.println(a.getX() + " " + a.getY());
-		System.out.println(a.getOrbitRadius() + " " + a.getOrbitTheta());
-	}
-
-	// constructor---------------------
-	public PlanetActor() {
-	}
-
-	// constructor=====================
 
 	// drawing-------------------------
 	public void acquireRegion() {
@@ -40,12 +30,14 @@ public class PlanetActor extends Actor {
 		if (image != null) {
 			setWidth(image.getRegionWidth());
 			setHeight(image.getRegionHeight());
+			colCircle = new Circle(getX() + getWidth() / 2f, getY() + getHeight() / 2f, getWidth() / 2f);
 		}
 	}
 
 	public void releaseRegion() {
 		ArtManager.getSingleton().disposeAtlas(atlasName);
 		image = null;
+		colCircle = null;
 	}
 
 	public void setOrbitPosition(float radius, float theta) {
@@ -66,9 +58,48 @@ public class PlanetActor extends Actor {
 	public float getOrbitTheta() {
 		return (float) Math.toDegrees(Math.atan(getY() / getX()));
 	}
+	
+	@Override
+	public void setPosition(float x, float y) {
+		super.setPosition(x, y);
+		if(colCircle != null){
+			colCircle.x = x;
+			colCircle.y = y;
+		}
+	}
+	
+	@Override
+	public void translate(float x, float y) {
+		super.translate(x, y);
+		if(colCircle != null){
+			colCircle.x += x;
+			colCircle.y += y;
+		}
+	}
 
 	// drawing=========================
 
+	
+	
+	@Override
+	public Actor hit(float x, float y, boolean touchable) {
+		Actor a = super.hit(x, y, touchable);
+		
+		if(a == this){
+			if(colCircle == null){
+				acquireRegion();
+				return null;
+			}
+			if(colCircle.contains(x, y)){
+				return this;
+			} else {
+				return null;
+			}
+		}
+		
+		return a;
+	}
+	
 	// Actors--------------------------
 	@Override
 	public void draw(SpriteBatch batch, float parentAlpha) {
@@ -92,8 +123,8 @@ public class PlanetActor extends Actor {
 		if (image == null)
 			acquireRegion();
 		else
-			batch.draw(image, getX() - getWidth() / 2f, getY() - getHeight()
-					/ 2f, getOriginX(), getOriginY(), getWidth(), getHeight(),
+			batch.draw(image, getX(), getY(),
+					getOriginX(), getOriginY(), getWidth(), getHeight(),
 					getScaleX(), getScaleY(), getRotation());
 	}
 	// Actors==========================

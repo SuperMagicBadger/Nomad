@@ -2,6 +2,12 @@
 
 <SystemModel atlas="gamescreen" texture="orange_sun">
     
+    <Background>
+        <Layer atlas="gamescreen" texture=""/>
+        <Layer atlas="gamescreen" texture=""/>
+        <Layer atlas="gamescreen" texture=""/>
+    </Background>
+    
     <Planet atlas="gamescreen" texture="green_planet" radius="300"/>
     <Planet atlas="gamescreen" texture="green_planet" radius="400"/>
     <Planet atlas="gamescreen" texture="green_planet" radius="500"/>

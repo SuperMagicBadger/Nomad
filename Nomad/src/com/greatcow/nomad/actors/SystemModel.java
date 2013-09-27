@@ -10,6 +10,7 @@ import com.badlogic.gdx.input.GestureDetector;
 import com.badlogic.gdx.input.GestureDetector.GestureAdapter;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.greatcow.nomad.Nomad;
 import com.greatcow.nomad.data.ArtManager;
@@ -20,73 +21,32 @@ import com.greatcow.nomad.shineys.ParallaxLayer;
 public class SystemModel extends Stage{
 	
 	// varblok-------------------------
-	// input management
-	public InputMultiplexer multiplexer;
-	GestureAdapter gestureAdater;
 	// system data
 	private ArrayList<PlanetActor> planetList = new ArrayList<PlanetActor>();
-	private float modelWidth = 0;
-	private float modelHeight = 0;
+	public float modelWidth = 0;
+	public float modelHeight = 0;
 	// Background
 	public ArrayList<TextureRegion> backgroundLayers;
 	public ParallaxBackground bg; 
 	// varblok=========================
 	
 	public SystemModel() {
-		gestureAdater = new GestureAdapter(){
-			@Override
-			public boolean pan(float x, float y, float deltaX, float deltaY) {
-				
-				// calculate positions
-				float camLeft = getCamera().position.x - (getCamera().viewportWidth / 2f) - deltaX;
-				float camBot = getCamera().position.y - (getCamera().viewportHeight / 2f) + deltaY;
-				float camRight = getCamera().position.x + (getCamera().viewportWidth / 2f) - deltaX;
-				float camTop = getCamera().position.y + (getCamera().viewportHeight / 2f) + deltaY;
-
-				System.out.println("center: " + getCamera().position.x + " " + getCamera().position.y);
-				System.out.println("edges: " + camLeft + " " + camRight + " " + camTop + " " + camBot);
-				
-				// correct x
-				if(camLeft <= -modelWidth && deltaX > 0){
-					Gdx.app.log("SystemModel", "" + camLeft);
-					deltaX = 0;
-				} else if (camRight >= modelWidth && deltaX < 0) {
-					Gdx.app.log("SystemModel", "" + camRight);
-					deltaX = 0;
-				}
-				
-				// correct y
-				if(camTop >= modelHeight && deltaY > 0){
-					deltaY = 0;
-				} else if (camBot <= -modelHeight && deltaY < 0){
-					deltaY = 0;
-				}
-				
-
-				getCamera().translate(-deltaX, deltaY, 0);
-				bg.scroll(-deltaX, deltaY);
-				
-				return true;
-			}
-		};
-		multiplexer = new InputMultiplexer();
-		multiplexer.addProcessor(this);
-		multiplexer.addProcessor(new GestureDetector(gestureAdater));
+		
+		UnitActor ua = new UnitActor("gamescreen", "battleship");
+		ua.setPosition(50, 50);
+		addActor(ua);
+		ua.toFront();
 		
 		backgroundLayers = new ArrayList<TextureRegion>();
 		
 		TextureRegion region1 = ArtManager.getSingleton().getAtlas("gamescreen").findRegion("bluestars");
 		TextureRegion region2 = ArtManager.getSingleton().getAtlas("gamescreen").findRegion("littlegrid");
-//		TextureRegion region3 = ArtManager.getSingleton().getAtlas("gamescreen").findRegion("whitestars");
-		TextureRegion region4 = ArtManager.getSingleton().getAtlas("gamescreen").findRegion("biggrid");
-		
-		
+		TextureRegion region3 = ArtManager.getSingleton().getAtlas("gamescreen").findRegion("biggrid");
 		
 		ParallaxLayer[] layers = new ParallaxLayer[3];
 		layers[0] = new ParallaxLayer(region1, new Vector2(0.15f, 0.15f), new Vector2(0, 0));
 		layers[1] = new ParallaxLayer(region2, new Vector2(0.5f, 0.5f), new Vector2(0, 0));
-//		layers[2] = new ParallaxLayer(region3, new Vector2(0.75f, 0.75f), new Vector2(0, 0));
-		layers[2] = new ParallaxLayer(region4, new Vector2(1f, 1f), new Vector2(0, 0));
+		layers[2] = new ParallaxLayer(region3, new Vector2(1f, 1f), new Vector2(0, 0));
 		
 		bg = new ParallaxBackground(layers, Gdx.graphics.getWidth(), Gdx.graphics.getHeight(), new Vector2(0, 0));
 	}
@@ -95,32 +55,6 @@ public class SystemModel extends Stage{
 	public void draw() {
 		
 		getCamera().update();
-
-////Draw camera debug--------------------------------------------------------------------------------
-//		// calculate positions
-//		float camLeft = getCamera().position.x - (getCamera().viewportWidth / 2f);
-//		float camBot = getCamera().position.y - (getCamera().viewportHeight / 2f);
-//		float camRight = getCamera().position.x + (getCamera().viewportWidth / 2f);
-//		float camTop = getCamera().position.y + (getCamera().viewportHeight / 2f);
-//		//draw camera spots
-//		Nomad.shapeRenderer.begin(ShapeType.FilledCircle);
-//		//top
-//		Nomad.shapeRenderer.setColor(1, 0, 0, 1);
-//		Nomad.shapeRenderer.filledCircle(getCamera().position.x, camTop, 32);
-//		//bottom
-//		Nomad.shapeRenderer.setColor(0, 1, 0, 1);
-//		Nomad.shapeRenderer.filledCircle(getCamera().position.x, camBot, 32);
-//		//center
-//		Nomad.shapeRenderer.setColor(1, 1, 1, 1);
-//		Nomad.shapeRenderer.filledCircle(getCamera().position.x, getCamera().position.y, 32);
-//		//left
-//		Nomad.shapeRenderer.setColor(1, 0, 1, 1);
-//		Nomad.shapeRenderer.filledCircle(camLeft, getCamera().position.y, 32);
-//		//right
-//		Nomad.shapeRenderer.setColor(0, 0, 1, 1);
-//		Nomad.shapeRenderer.filledCircle(camRight, getCamera().position.y, 32);	
-//		Nomad.shapeRenderer.end();
-////Draw camera debug--------------------------------------------------------------------------------
 		
 		bg.render(0.5f);
 		if (!getRoot().isVisible()) return;
@@ -139,6 +73,7 @@ public class SystemModel extends Stage{
 	public void addPlanet(PlanetActor planet) {
 		planetList.add(planet);
 		addActor(planet);
+		planet.toBack();
 		float radius = planet.getOrbitRadius();
 		
 		
@@ -154,6 +89,11 @@ public class SystemModel extends Stage{
 		for(PlanetActor a : planetList){
 			a.releaseRegion();
 		}
+	}
+	
+	public void translate(float x, float y){
+		getCamera().translate(x, y, 0);
+		bg.scroll(x, y);
 	}
 	
 }

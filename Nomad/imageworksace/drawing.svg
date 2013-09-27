@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="744.09448819"
+   height="1052.3622047"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.48.4 r9939"
+   sodipodi:docname="drawing.svg">
+  <defs
+     id="defs4">
+    <inkscape:perspective
+       sodipodi:type="inkscape:persp3d"
+       inkscape:vp_x="242.62695 : 488.16262 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_z="986.72143 : 488.16262 : 1"
+       inkscape:persp3d-origin="614.67419 : 312.76892 : 1"
+       id="perspective3198" />
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="2.8933306"
+     inkscape:cx="359.93853"
+     inkscape:cy="918.83397"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     showguides="true"
+     inkscape:guide-bbox="true"
+     inkscape:window-width="1920"
+     inkscape:window-height="1053"
+     inkscape:window-x="-9"
+     inkscape:window-y="374"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <g
+       id="g3018"
+       transform="matrix(0.8591325,0,0,0.88943616,30.309108,-45.736189)">
+      <rect
+         ry="8.625"
+         y="190.68347"
+         x="70.23214"
+         height="25.464285"
+         width="35.32143"
+         id="rect3016"
+         style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0" />
+      <g
+         id="g3011">
+        <path
+           sodipodi:type="arc"
+           style="fill:#008000;stroke:#00ff00;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+           id="path2985"
+           sodipodi:cx="234.72322"
+           sodipodi:cy="93.344322"
+           sodipodi:rx="37.99107"
+           sodipodi:ry="68.589287"
+           d="m 272.71429,93.344322 c 0,37.880818 -17.00918,68.589288 -37.99107,68.589288 -20.98189,0 -37.99107,-30.70847 -37.99107,-68.589288 0,-37.880817 17.00918,-68.589287 37.99107,-68.589287 20.98189,0 37.99107,30.70847 37.99107,68.589287 z"
+           transform="matrix(0.9248269,0,0,1.0002784,-128.98013,48.438301)" />
+        <path
+           sodipodi:type="arc"
+           style="fill:#000000;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+           id="path2987"
+           sodipodi:cx="308.44644"
+           sodipodi:cy="229.70146"
+           sodipodi:rx="18.071428"
+           sodipodi:ry="21.767857"
+           d="m 326.51787,229.70146 c 0,12.02206 -8.09085,21.76786 -18.07143,21.76786 -9.98057,0 -18.07143,-9.7458 -18.07143,-21.76786 0,-12.02205 8.09086,-21.76785 18.07143,-21.76785 9.98058,0 18.07143,9.7458 18.07143,21.76785 z"
+           transform="translate(-220.55357,-66.535714)" />
+        <path
+           style="fill:#00ff00;stroke:#00ff00;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           d="m 62.072503,89.647907 c 0,0 9.35195,76.430713 25.43696,86.250003 11.56716,-8.58715 25.436967,-86.250003 25.436967,-86.250003 0,0 39.83928,101.482153 -25.053567,122.428573 C 25.875003,187.84433 62.072503,89.647907 62.072503,89.647907 z"
+           id="path2991-1"
+           inkscape:connector-curvature="0"
+           sodipodi:nodetypes="ccccc" />
+      </g>
+    </g>
+    <g
+       id="g3157"
+       transform="matrix(0.87674659,0,0,1.0061062,161.17753,-9.7794384)"
+       inkscape:export-filename="C:\Users\Cow\workspace\Nomad\Nomad\imageworksace\gamescreen\battleship.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <path
+         sodipodi:nodetypes="ccccc"
+         inkscape:connector-curvature="0"
+         id="rect3029-4"
+         d="m 158.26087,103.76208 -7.96859,3.78151 -0.46067,19.96005 7.37054,0.87626 z"
+         style="fill:#008000;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.51583153;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dashoffset:0" />
+      <path
+         sodipodi:nodetypes="ccccc"
+         inkscape:connector-curvature="0"
+         id="rect3029"
+         d="m 166.12397,103.88285 7.96859,3.78151 0.46067,19.96005 -7.37054,0.87626 z"
+         style="fill:#008000;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.51583153;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dashoffset:0" />
+      <path
+         sodipodi:nodetypes="sssssss"
+         inkscape:connector-curvature="0"
+         id="rect3025"
+         d="m 162.03486,73.593468 c 3.11269,0 5.17883,2.958424 5.61856,6.573494 l 4,32.884228 c 0.43973,3.61506 -6.50587,13.13824 -9.61856,13.13824 -3.11268,0 -10.05828,-9.52318 -9.61855,-13.13824 l 4,-32.884228 c 0.43973,-3.61507 2.50587,-6.573494 5.61855,-6.573494 z"
+         style="fill:#008000;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.57080293;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dashoffset:0" />
+    </g>
+    <g
+       id="g3109"
+       style="fill:#008000"
+       transform="matrix(0.72596064,0,0,0.62932639,162.5346,-72.086364)"
+       inkscape:export-filename="C:\Users\Cow\workspace\Nomad\Nomad\imageworksace\gamescreen\cruiser.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <path
+         sodipodi:nodetypes="sssssss"
+         inkscape:connector-curvature="0"
+         id="rect3057"
+         d="m 205.35714,165.1841 c 2.45253,0 4.18077,2.30885 4.42693,5.14442 l 1.64857,18.99039 c 0.24616,2.83557 -3.62297,10.43565 -6.0755,10.43565 -2.45252,0 -6.6022,-7.60345 -6.31989,-10.43565 l 1.89297,-18.99039 c 0.28231,-2.8322 1.9744,-5.14442 4.42692,-5.14442 z"
+         style="fill:#008000;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.92954266;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dashoffset:0" />
+      <path
+         sodipodi:nodetypes="ccccc"
+         inkscape:connector-curvature="0"
+         id="rect3080"
+         d="m 156.48684,229.77418 3.93776,0.59876 -0.38894,10.8866 -3.87008,-0.88222 z"
+         inkscape:transform-center-y="0.36550065"
+         style="fill:#008000;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.89813167;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dashoffset:0"
+         transform="matrix(0.97945827,-0.20164695,0.23384802,0.97227316,0,0)" />
+      <rect
+         ry="1.0386659"
+         y="187.459"
+         x="210.23819"
+         height="5.1933293"
+         width="2.0773318"
+         id="rect3084"
+         style="fill:#008000;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0" />
+      <path
+         sodipodi:nodetypes="ccccc"
+         inkscape:connector-curvature="0"
+         id="rect3080-0"
+         d="m -243.0382,146.88876 3.93776,0.59876 -0.38894,10.88659 -3.87008,-0.88222 z"
+         inkscape:transform-center-y="0.36549738"
+         style="fill:#008000;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.89813167;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dashoffset:0"
+         transform="matrix(-0.97945827,-0.20164695,-0.23384802,0.97227316,0,0)" />
+      <rect
+         transform="scale(-1,1)"
+         ry="1.0386659"
+         y="187.43472"
+         x="-200.46249"
+         height="5.1933293"
+         width="2.0773318"
+         id="rect3084-9"
+         style="fill:#008000;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0" />
+    </g>
+    <rect
+       style="fill:#008000;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1.14888406;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+       id="rect3164-8"
+       width="17.477861"
+       height="72.431824"
+       x="254.97099"
+       y="66.03019"
+       ry="4.679461"
+       inkscape:export-filename="C:\Users\Cow\workspace\Nomad\Nomad\imageworksace\gamescreen\foundry.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:#008000;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1.03288841;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dashoffset:0"
+       d="m 256.7898,23.463062 c 6.8723,0.653743 9.66868,9.152197 9.66868,19.601836 l 0,88.020902 c 0,10.44963 -6.73981,17.8417 -14.15749,18.49233 -6.25921,0.54902 -11.61489,-7.164 -14.15746,-13.31463 -11.23162,-27.17011 -7.86792,-61.116204 1.38117,-89.13041 3.11654,-9.439584 7.95379,-24.555785 17.2651,-23.670028 z"
+       id="rect3162"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="assaaaa"
+       inkscape:export-filename="C:\Users\Cow\workspace\Nomad\Nomad\imageworksace\gamescreen\foundry.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+  </g>
+</svg>
