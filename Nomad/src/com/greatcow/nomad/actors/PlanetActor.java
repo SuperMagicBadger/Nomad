@@ -20,7 +20,6 @@ public class PlanetActor extends Actor {
 	public TextureRegion image;
 	// collision
 	private Circle colCircle;
-
 	// varblok=========================
 
 	// drawing-------------------------
@@ -30,6 +29,7 @@ public class PlanetActor extends Actor {
 		if (image != null) {
 			setWidth(image.getRegionWidth());
 			setHeight(image.getRegionHeight());
+			translate(getWidth() / -2f, getHeight() / -2f);
 			colCircle = new Circle(getX() + getWidth() / 2f, getY() + getHeight() / 2f, getWidth() / 2f);
 		}
 	}
@@ -48,15 +48,15 @@ public class PlanetActor extends Actor {
 		Gdx.app.log("PlanetActor", "Placeing at r: " + radius + " theta "
 				+ theta + " x: " + x + " y: " + y);
 
-		setPosition(x, y);
+		centerOn(x, y);
 	}
 
 	public float getOrbitRadius() {
-		return (float) Math.sqrt(getX() * getX() + getY() * getY());
+		return (float) Math.sqrt(centerX() * centerX() + centerY() * centerY());
 	}
 
 	public float getOrbitTheta() {
-		return (float) Math.toDegrees(Math.atan(getY() / getX()));
+		return (float) Math.toDegrees(Math.atan(centerY() / centerX()));
 	}
 	
 	@Override
@@ -66,6 +66,18 @@ public class PlanetActor extends Actor {
 			colCircle.x = x;
 			colCircle.y = y;
 		}
+	}
+	
+	public void centerOn(float x, float y){
+		setPosition(x - getWidth() / 2f, y - getHeight() / 2f);
+	}
+	
+	public float centerX(){
+		return getX() + getWidth() / 2f;
+	}
+	
+	public float centerY(){
+		return getY() + getHeight() / 2f;
 	}
 	
 	@Override
@@ -78,9 +90,6 @@ public class PlanetActor extends Actor {
 	}
 
 	// drawing=========================
-
-	
-	
 	@Override
 	public Actor hit(float x, float y, boolean touchable) {
 		Actor a = super.hit(x, y, touchable);

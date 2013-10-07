@@ -3,6 +3,13 @@ package com.greatcow.nomad;
 import java.util.Random;
 
 import com.badlogic.gdx.Game;
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.GL20;
+import com.badlogic.gdx.graphics.Mesh;
+import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.VertexAttribute;
+import com.badlogic.gdx.graphics.glutils.ShaderProgram;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.greatcow.nomad.actors.SystemModel;
 import com.greatcow.nomad.data.SystemFactory;
@@ -27,7 +34,52 @@ public class Nomad extends Game {
 
 	@Override
 	public void create() {
-		System.out.println("aSdf");
+//		
+//		OrthographicCamera cam = new OrthographicCamera();
+//		cam.update();
+//		Texture t = new Texture(Gdx.files.internal("images/newgame.png"));
+//		ShaderProgram shader = new ShaderProgram(
+//				Gdx.files.classpath("com/greatcow/nomad/shineys/vert_shader"),
+//				Gdx.files.classpath("com/greatcow/nomad/shineys/frag_shader")
+//				);
+//		
+//		float[] verts = new float[20];
+//		int i = 0;
+//
+//		verts[i++] = -1; // x1
+//		verts[i++] = -1; // y1
+//		verts[i++] = 0;
+//		verts[i++] = 0f; // u1
+//		verts[i++] = 0f; // v1
+//
+//		verts[i++] = 1f; // x2
+//		verts[i++] = -1; // y2
+//		verts[i++] = 0;
+//		verts[i++] = 1f; // u2
+//		verts[i++] = 0f; // v2
+//
+//		verts[i++] = 1f; // x3
+//		verts[i++] = 1f; // y2
+//		verts[i++] = 0;
+//		verts[i++] = 1f; // u3
+//		verts[i++] = 1f; // v3
+//
+//		verts[i++] = -1; // x4
+//		verts[i++] = 1f; // y4
+//		verts[i++] = 0;
+//		verts[i++] = 0f; // u4
+//		verts[i++] = 1f; // v4
+//
+//		Mesh mesh = new Mesh(true, 4, 0, VertexAttribute.Position(), VertexAttribute.ColorUnpacked(), VertexAttribute.TexCoords(0));
+//		mesh.setVertices( verts );
+//		
+//		t.bind();
+//		shader.begin();
+//		shader.setUniformMatrix("u_worldView", cam.projection);
+//		shader.setUniformi("u_texture",  0);
+//		mesh.render(shader, GL20.GL_TRIANGLES);
+//		shader.end();
+//		System.out.println("aSdf");
 		
 		game = this;
 		shapeRenderer = new ShapeRenderer();

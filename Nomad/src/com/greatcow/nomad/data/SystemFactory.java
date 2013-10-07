@@ -38,7 +38,7 @@ public class SystemFactory {
 				PlanetActor sun = new PlanetActor();
 				sun.atlasName = e.get(atlas_tag);
 				sun.textureName = e.get(texture_tag);
-				sun.setPosition(0, 0);
+				sun.centerOn(0, 0);
 				model.addPlanet(sun);
 				
 				for(int i = 0; i < e.getChildCount(); i++){

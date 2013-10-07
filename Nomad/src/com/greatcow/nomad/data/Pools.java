@@ -4,6 +4,7 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.utils.Pool;
 import com.greatcow.nomad.actors.PlanetActor;
+import com.greatcow.nomad.control.CurveMover;
 
 public class Pools {
 	
@@ -63,4 +64,14 @@ public class Pools {
 		planetPool.free(model);
 	}
 	// Planet Models===================
+	
+	// curve mover pool----------------
+//	static Pool<CurveMover> moverpool = new Pool<CurveMover>(){
+//		protected CurveMover newObject() {
+//			CurveMover mover = new CurveMover();
+//			mover.setPool(this);
+//			return mover;
+//		}
+//	};
+	// curve mover pool================
 }

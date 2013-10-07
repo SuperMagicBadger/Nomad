@@ -7,9 +7,14 @@ import com.badlogic.gdx.input.GestureDetector;
 import com.badlogic.gdx.input.GestureDetector.GestureListener;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.Actor;
+import com.badlogic.gdx.scenes.scene2d.actions.Actions;
+import com.badlogic.gdx.scenes.scene2d.actions.MoveByAction;
+import com.badlogic.gdx.scenes.scene2d.actions.MoveToAction;
+import com.badlogic.gdx.scenes.scene2d.actions.RotateToAction;
 import com.greatcow.nomad.actors.PlanetActor;
 import com.greatcow.nomad.actors.SystemModel;
 import com.greatcow.nomad.actors.UnitActor;
+import com.greatcow.nomad.actors.UnitActor.State;
 import com.greatcow.nomad.data.Pools;
 
 public class SystemInput extends InputMultiplexer implements GestureListener {
@@ -29,6 +34,12 @@ public class SystemInput extends InputMultiplexer implements GestureListener {
 
 	@Override
 	public boolean touchDown(float x, float y, int pointer, int button) {
+		
+		if(activeUnit != null){
+			
+			return true;
+		}
+		
 		Vector2 v = Pools.obtainVector2(x, y);
 		v = model.screenToStageCoordinates(v);
 		Actor a = model.hit(v.x, v.y, true);
@@ -48,7 +59,16 @@ public class SystemInput extends InputMultiplexer implements GestureListener {
 
 	@Override
 	public boolean tap(float x, float y, int count, int button) {
-		activeUnit = null;
+		if (activeUnit != null && activeUnit.state == State.beginMove) {
+			Vector2 v = Pools.obtainVector2(x, y);
+			model.screenToStageCoordinates(v);
+			UnitController action = new UnitController();
+			action.setPosition(v.x, v.y);
+			action.setDuration(1);
+			activeUnit.addAction(action);
+			Pools.free(v);
+		}
+		deselectUnit();
 		activePlanet = null;
 		return false;
 	}
@@ -62,14 +82,20 @@ public class SystemInput extends InputMultiplexer implements GestureListener {
 
 	@Override
 	public boolean fling(float velocityX, float velocityY, int button) {
-		activeUnit = null;
-		activePlanet = null;
-		return false;
+		
+		if(activeUnit != null && velocityY < -2){
+			activeUnit.state = State.beginMove;
+			return true;
+		} else {		
+			deselectUnit();
+			activePlanet = null;
+			return false;
+		}
 	}
 
 	@Override
 	public boolean pan(float x, float y, float deltaX, float deltaY) {
-		if (activeUnit == null && activePlanet == null) {
+		if (activeUnit == null) {
 			Camera c = model.getCamera();
 
 			// calculate positions
@@ -96,8 +122,6 @@ public class SystemInput extends InputMultiplexer implements GestureListener {
 
 			model.translate(-deltaX, deltaY);
 			return true;
-		} else if (activeUnit != null){
-			activeUnit.translate(deltaX, -deltaY);
 		}
 
 		return false;
@@ -112,6 +136,17 @@ public class SystemInput extends InputMultiplexer implements GestureListener {
 	public boolean pinch(Vector2 initialPointer1, Vector2 initialPointer2,
 			Vector2 pointer1, Vector2 pointer2) {
 		return false;
+	}
+	
+	public void selectUnit(){
+		
+	}
+	
+	public void deselectUnit(){
+		if(activeUnit != null){
+			activeUnit.state = State.rest;
+			activeUnit = null;
+		}
 	}
 
 }
