@@ -7,10 +7,6 @@ import com.badlogic.gdx.input.GestureDetector;
 import com.badlogic.gdx.input.GestureDetector.GestureListener;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.Actor;
-import com.badlogic.gdx.scenes.scene2d.actions.Actions;
-import com.badlogic.gdx.scenes.scene2d.actions.MoveByAction;
-import com.badlogic.gdx.scenes.scene2d.actions.MoveToAction;
-import com.badlogic.gdx.scenes.scene2d.actions.RotateToAction;
 import com.greatcow.nomad.actors.PlanetActor;
 import com.greatcow.nomad.actors.SystemModel;
 import com.greatcow.nomad.actors.UnitActor;
@@ -62,7 +58,7 @@ public class SystemInput extends InputMultiplexer implements GestureListener {
 		if (activeUnit != null && activeUnit.state == State.beginMove) {
 			Vector2 v = Pools.obtainVector2(x, y);
 			model.screenToStageCoordinates(v);
-			UnitController action = new UnitController();
+			UnitMovementController action = new UnitMovementController();
 			action.setPosition(v.x, v.y);
 			action.setDuration(1);
 			activeUnit.addAction(action);

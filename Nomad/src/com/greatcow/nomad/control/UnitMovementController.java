@@ -3,7 +3,7 @@ package com.greatcow.nomad.control;
 import com.badlogic.gdx.scenes.scene2d.actions.TemporalAction;
 import com.greatcow.nomad.actors.UnitActor;
 
-public class UnitController extends TemporalAction {
+public class UnitMovementController extends TemporalAction {
 	private float startX, startY;
 	private float endX, endY;
 	private float startTheta, endTheta;
@@ -19,10 +19,24 @@ public class UnitController extends TemporalAction {
 
 	@Override
 	protected void update(float percent) {
+		if(percent < 0.25){
+			float p = percent / 0.25f; 
+			rotate(p);
+		} else {
+			float p = (percent - 0.25f) / 0.75f;
+			move(p);
+		}
+	}
+	
+	protected void rotate(float percent){
+		UnitActor unit = (UnitActor) getActor();
+		unit.setRotation(startTheta + (endTheta - startTheta) * percent);
+	}
+	
+	protected void move(float percent){
 		UnitActor unit = (UnitActor) getActor();
 		unit.centerOn(startX + (endX - startX) * percent,
 				startY + (endY - startY) * percent);
-		unit.setRotation(startTheta + (endTheta - startTheta) * percent);
 	}
 
 	public void setPosition(float x, float y) {

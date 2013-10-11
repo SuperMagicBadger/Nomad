@@ -28,15 +28,25 @@ public class SystemModel extends Stage{
 	// Background
 	public ArrayList<TextureRegion> backgroundLayers;
 	public ParallaxBackground bg; 
+	// cursor
+	CommandRing unitRing;
 	// varblok=========================
 	
 	public SystemModel() {
 		
-		UnitActor ua = new UnitActor("gamescreen", "battleship");
+		
+		// create a test unit actor
+		UnitActor ua = new UnitActor("gamescreen", "foundry");
 		ua.setPosition(50, 50);
 		addActor(ua);
 		ua.toFront();
 		
+		//create the unit command rings
+		unitRing = new CommandRing("mono_white", "gamescreen", "red_circle");
+		addActor(unitRing);
+		unitRing.setTarget(ua);
+		
+		// and the background
 		backgroundLayers = new ArrayList<TextureRegion>();
 		
 		TextureRegion region1 = ArtManager.getSingleton().getAtlas("gamescreen").findRegion("bluestars");
