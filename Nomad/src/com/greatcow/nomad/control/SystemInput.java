@@ -7,9 +7,11 @@ import com.badlogic.gdx.input.GestureDetector;
 import com.badlogic.gdx.input.GestureDetector.GestureListener;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.Actor;
+import com.greatcow.nomad.actors.CommandRing;
 import com.greatcow.nomad.actors.PlanetActor;
 import com.greatcow.nomad.actors.SystemModel;
 import com.greatcow.nomad.actors.UnitActor;
+import com.greatcow.nomad.actors.CommandRing.CommandListener;
 import com.greatcow.nomad.actors.UnitActor.State;
 import com.greatcow.nomad.data.Pools;
 
@@ -19,13 +21,26 @@ public class SystemInput extends InputMultiplexer implements GestureListener {
 	public GestureDetector detector;
 	public UnitActor activeUnit;
 	public PlanetActor activePlanet;
+	// cursor
+	CommandRing unitRing;
 
 	public SystemInput(SystemModel systemModel) {
 		model = systemModel;
 		detector = new GestureDetector(this);
 
 		addProcessor(model);
-		addProcessor(detector);
+		addProcessor(detector);		
+		
+		//create the unit command rings
+		unitRing = new CommandRing("mono_white", "gamescreen", "red_circle");
+		model.addActor(unitRing);
+		
+		unitRing.addCommand("Move", "gamescreen", "blue_circle", new CommandListener() {
+			@Override
+			public void onCommand() {
+					System.out.println("move");
+			}
+		});
 	}
 
 	@Override
@@ -46,6 +61,7 @@ public class SystemInput extends InputMultiplexer implements GestureListener {
 				activeUnit = null;
 			} else if (a instanceof UnitActor) {
 				activeUnit = (UnitActor) a;
+				unitRing.setTarget(activeUnit);
 				activePlanet = null;
 			}
 		}
@@ -62,6 +78,9 @@ public class SystemInput extends InputMultiplexer implements GestureListener {
 			action.setPosition(v.x, v.y);
 			action.setDuration(1);
 			activeUnit.addAction(action);
+			activeUnit = null;
+			unitRing.setTarget(null);
+			unitRing.setCommand(-1);
 			Pools.free(v);
 		}
 		deselectUnit();
@@ -81,6 +100,7 @@ public class SystemInput extends InputMultiplexer implements GestureListener {
 		
 		if(activeUnit != null && velocityY < -2){
 			activeUnit.state = State.beginMove;
+			unitRing.setCommand(0);
 			return true;
 		} else {		
 			deselectUnit();

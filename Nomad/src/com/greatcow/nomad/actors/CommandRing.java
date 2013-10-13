@@ -2,10 +2,8 @@ package com.greatcow.nomad.actors;
 
 import java.util.ArrayList;
 
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.greatcow.nomad.data.ArtManager;
@@ -43,6 +41,8 @@ public class CommandRing extends Actor {
 		defaultRingAtlas = defaultAtlas;
 		defaultRingTexture = defaultTexture;
 		ringDirty = true;
+		activeCommand = -1;
+		commandList = new ArrayList<CommandRing.CommandData>();
 	}
 
 	/**
@@ -54,24 +54,18 @@ public class CommandRing extends Actor {
 		target = a;
 		if(a == null){
 			releaseAssets();
+			setVisible(false);
+		} else {
+			a.toFront();
+			setZIndex(a.getZIndex() - 1);
+			setVisible(true);
+			acquireAssets();
 		}
-		a.toFront();
-		setZIndex(a.getZIndex() - 1);
-	}
-
-	public void setCommand(){
-		
 	}
 	
 	// load and release resources--------------------------
 	public void acquireAssets() {
 		acquireRing();
-		if (font == null) {
-			font = ArtManager.getSingleton().getFont(fontName);
-		}
-		if(font == null){
-			releaseRing();
-		}
 	}
 
 	public void releaseAssets() {
@@ -88,7 +82,12 @@ public class CommandRing extends Actor {
 	private void acquireRing(){
 		if(ringDirty){
 			releaseRing();
-			ring = ArtManager.getSingleton().getAtlas(defaultRingAtlas).findRegion(defaultRingTexture);
+			System.out.println("switch to " + activeCommand);
+			if(activeCommand < commandList.size() && activeCommand >= 0){
+				ring = ArtManager.getSingleton().getAtlas(commandList.get(activeCommand).indicatorAtlas).findRegion(commandList.get(activeCommand).indicatorTexture);
+			} else {
+				ring = ArtManager.getSingleton().getAtlas(defaultRingAtlas).findRegion(defaultRingTexture);
+			}
 			setWidth(ring.getRegionWidth());
 			setHeight(ring.getRegionHeight());
 			ringDirty = false;
@@ -105,8 +104,8 @@ public class CommandRing extends Actor {
 	// rendering-------------------------------------------
 	@Override
 	public void draw(SpriteBatch batch, float parentAlpha) {
-		if(ring == null){
-			acquireAssets();
+		if(ring == null || ringDirty){
+			acquireRing();
 		} else if (target != null && target instanceof UnitActor) {
 			UnitActor ua = (UnitActor) target;
 			batch.draw(ring, ua.centerX() - getWidth() / 2f, ua.centerY() - getHeight() / 2f);
@@ -130,6 +129,30 @@ public class CommandRing extends Actor {
 	
 	public void addCommand(String commandName){
 		addCommand(commandName, null, null, null);
+	}
+
+	public CommandData getCommand(int i){
+		if(i >= 0 && i < commandList.size()){
+			return commandList.get(i);
+		}
+		return null;
+	}
+	
+	public void setCommand(int command){
+		activeCommand = command;
+		trigerCommand(command);
+		ringDirty = true;
+	}
+	
+	public void setCommand(float xDir, float yDir){
+		ringDirty = true;
+	}
+	
+	public void trigerCommand(int i){
+		CommandData cd = getCommand(i);
+		if(cd != null && cd.listener != null){
+			cd.listener.onCommand();
+		}
 	}
 	
 	public void showCommands(){

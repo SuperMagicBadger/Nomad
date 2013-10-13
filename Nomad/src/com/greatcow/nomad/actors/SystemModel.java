@@ -3,18 +3,10 @@ package com.greatcow.nomad.actors;
 import java.util.ArrayList;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.InputMultiplexer;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
-import com.badlogic.gdx.graphics.glutils.ShapeRenderer.ShapeType;
-import com.badlogic.gdx.input.GestureDetector;
-import com.badlogic.gdx.input.GestureDetector.GestureAdapter;
-import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
-import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Stage;
-import com.greatcow.nomad.Nomad;
 import com.greatcow.nomad.data.ArtManager;
-import com.greatcow.nomad.data.Pools;
 import com.greatcow.nomad.shineys.ParallaxBackground;
 import com.greatcow.nomad.shineys.ParallaxLayer;
 
@@ -28,8 +20,6 @@ public class SystemModel extends Stage{
 	// Background
 	public ArrayList<TextureRegion> backgroundLayers;
 	public ParallaxBackground bg; 
-	// cursor
-	CommandRing unitRing;
 	// varblok=========================
 	
 	public SystemModel() {
@@ -41,10 +31,7 @@ public class SystemModel extends Stage{
 		addActor(ua);
 		ua.toFront();
 		
-		//create the unit command rings
-		unitRing = new CommandRing("mono_white", "gamescreen", "red_circle");
-		addActor(unitRing);
-		unitRing.setTarget(ua);
+
 		
 		// and the background
 		backgroundLayers = new ArrayList<TextureRegion>();

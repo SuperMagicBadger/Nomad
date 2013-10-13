@@ -4,7 +4,6 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.utils.Pool;
 import com.greatcow.nomad.actors.PlanetActor;
-import com.greatcow.nomad.control.CurveMover;
 
 public class Pools {
 	
